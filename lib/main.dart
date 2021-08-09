@@ -6,7 +6,6 @@ void main() {
   // TODO: 数据获取
   // Provider
   runApp(_MyApp());
-
 }
 
 class _MyApp extends StatefulWidget {
