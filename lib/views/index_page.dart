@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/widgets/quick_link_card.dart';
 
-import '../swiper_widget.dart';
+import '../widgets/swiper_widget.dart';
 
 class IndexPage extends StatefulWidget {
   IndexPage({Key key, this.title}) : super(key: key);
@@ -85,33 +86,15 @@ class _IndexPageState extends State<IndexPage> {
                   ),
                 ),
                 Spacer(),
-                Row(
-                  children: [
-                    Spacer(),
-                    Container(
-                      height: 100,
-                      // color: Colors.white,
-                      child: Row(
-                        children: [
-                          SizedBox(width: 64, height: 0,),
-                          Text("掘金"),
-                          SizedBox(width: 64, height: 0,),
-                          Text("简书"),
-                          SizedBox(width: 64, height: 0,),
-                          Text("CSDN"),
-                          SizedBox(width: 64, height: 0,),
-                          Text("博客园"),
-                          SizedBox(width: 64, height: 0,),
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(36),topRight: Radius.circular(36)),
-                      ),
-                    ),
-                    Spacer(),
-                  ],
-                )
+                Container(
+                  margin: EdgeInsets.fromLTRB(120, 0, 120, 0),
+                  height: 120,
+                  child: QuickLinkCard(),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(36),topRight: Radius.circular(36)),
+                  ),
+                ),
               ],
             ),
           ),
