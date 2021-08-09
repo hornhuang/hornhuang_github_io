@@ -50,10 +50,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - QuickLink/jianshu.png
-    - QuickLink/juejin.png
-    - QuickLink/csdn.png
-    - QuickLink/wanandroid.png
+    - assets/QuickLink/jianshu.png
+    - assets/QuickLink/juejin.png
+    - assets/QuickLink/csdn.png
+    - assets/QuickLink/wanandroid.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
