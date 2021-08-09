@@ -53,22 +53,36 @@ class _IndexPageState extends State<IndexPage> {
                   ),
                 ),
                 Spacer(),
-                Row(
-                  children: [
-                    Spacer(),
-                    _buildTabText("data"),
-                    Spacer(),
-                    Spacer(),
-                    ClipOval(
-                      child: Image.network(
-                        "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b6eae3250bb62fadb3d2527f466cf033_b.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631113070&t=c25deadb136d92e4aae0aa11fc6a4d5c",
-                        width: 280,
-                        height: 280,
-                        fit: BoxFit.cover,
+                Container(
+                  margin: EdgeInsets.fromLTRB(120, 0, 120, 0),
+                  padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 400,
+                        child: Text(
+                          "Hornhuang\n\nI have always enjoyed working with computers, so it was an easy decision to major in Information and Computing Science at Hunan University of Science and Technology with a plan to enter IT field.",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24
+                          ),
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                  ],
+                      Spacer(),
+                      ClipOval(
+                        child: Image.network(
+                          "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b6eae3250bb62fadb3d2527f466cf033_b.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631113070&t=c25deadb136d92e4aae0aa11fc6a4d5c",
+                          width: 280,
+                          height: 280,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withAlpha(26),
+                    borderRadius: BorderRadius.all(Radius.circular(36)),
+                  ),
                 ),
                 Spacer(),
                 Row(
@@ -80,13 +94,13 @@ class _IndexPageState extends State<IndexPage> {
                       child: Row(
                         children: [
                           SizedBox(width: 64, height: 0,),
-                          Text("test"),
+                          Text("掘金"),
                           SizedBox(width: 64, height: 0,),
-                          Text("test"),
+                          Text("简书"),
                           SizedBox(width: 64, height: 0,),
-                          Text("test"),
+                          Text("CSDN"),
                           SizedBox(width: 64, height: 0,),
-                          Text("test"),
+                          Text("博客园"),
                           SizedBox(width: 64, height: 0,),
                         ],
                       ),
