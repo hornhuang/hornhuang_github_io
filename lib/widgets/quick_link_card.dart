@@ -30,7 +30,7 @@ class QuickLinkCard extends StatelessWidget {
     return Row(
       children: [
         _buildQuickLinkItem("掘金", "assets/QuickLink/juejin.png", "https://juejin.cn/"),
-        _buildQuickLinkItem("简书", "assets/QuickLink/favicon.png", "https://www.jianshu.com/"),
+        _buildQuickLinkItem("简书", "assets/QuickLink/jianshu.png", "https://www.jianshu.com/"),
         _buildQuickLinkItem("CSDN", "assets/QuickLink/csdn.png", "https://www.csdn.net/"),
         _buildQuickLinkItem("玩Android", "assets/QuickLink/wanandroid.png", "https://www.wanandroid.com/"),
       ],

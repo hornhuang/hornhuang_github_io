@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
+import 'package:hornhuang_github_io/views/about_me_page.dart';
 import 'package:hornhuang_github_io/widgets/quick_link_card.dart';
+import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 
 import '../widgets/swiper_widget.dart';
 
@@ -15,16 +17,6 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
-
-  Widget _buildTabText(String title) {
-    return Text(
-      title,
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 16
-      ),
-    );
-  }
 
   Widget _buildBottomNavBar() {
     return Row(
@@ -43,53 +35,27 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
-  Widget _buildTitleNavBar() {
-    return Container(
-      color: Colors.black.withAlpha(50),
-      padding: EdgeInsets.all(24),
-      child: Row(
-        children: [
-          ClipOval(
-            child: Image.network(
-              AppUtil.baseURL + "Index/favicon.png"
-            ),
-          ),
-          Spacer(),
-          _buildTabText("应用"),
-          SizedBox(width: 32, height: 0,),
-          _buildTabText("美图"),
-          SizedBox(width: 32, height: 0,),
-          _buildTabText("新鲜事"),
-          SizedBox(width: 32, height: 0,),
-          _buildTabText("GitHub"),
-          SizedBox(width: 32, height: 0,),
-          _buildTabText("关于我"),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SwiperWidget(),
-          _buildTitleNavBar(),
+          TopNavigationBar(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Spacer(),
                 Container(
-                  margin: EdgeInsets.fromLTRB(120, 0, 120, 0),
+                  width: 1200,
                   padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
                   child: Row(
                     children: [
                       Container(
                         width: 400,
                         child: Text(
-                          "Hornhuang\n\nI have always enjoyed working with computers, so it was an easy decision to major in Information and Computing Science at Hunan University of Science and Technology with a plan to enter IT field.",
+                          "Hi~ I'm Hornhuang\n\nI have always enjoyed working with computers, so it was an easy decision to major in Information and Computing Science at Hunan University of Science and Technology with a plan to enter IT field.",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 24
