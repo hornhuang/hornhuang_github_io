@@ -19,7 +19,7 @@ class _MyAppState extends State<_MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '黎明韭菜',
       theme: ThemeData(
         // This is the theme of your application.
         //

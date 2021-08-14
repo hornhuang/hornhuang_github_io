@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/widgets/quick_link_card.dart';
 
 import '../widgets/swiper_widget.dart';
@@ -25,34 +26,60 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
+  Widget _buildBottomNavBar() {
+    return Row(
+      children: [
+        Spacer(),
+        Container (
+          height: 120,
+          child: QuickLinkCard(),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(36),topRight: Radius.circular(36)),
+          ),
+        ),
+        Spacer(),
+      ],
+    );
+  }
+
+  Widget _buildTitleNavBar() {
+    return Container(
+      color: Colors.black.withAlpha(50),
+      padding: EdgeInsets.all(24),
+      child: Row(
+        children: [
+          ClipOval(
+            child: Image.network(
+              AppUtil.baseURL + "Index/favicon.png"
+            ),
+          ),
+          Spacer(),
+          _buildTabText("应用"),
+          SizedBox(width: 32, height: 0,),
+          _buildTabText("美图"),
+          SizedBox(width: 32, height: 0,),
+          _buildTabText("新鲜事"),
+          SizedBox(width: 32, height: 0,),
+          _buildTabText("GitHub"),
+          SizedBox(width: 32, height: 0,),
+          _buildTabText("关于我"),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SwiperWidget(),
+          _buildTitleNavBar(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  color: Colors.black.withAlpha(50),
-                  padding: EdgeInsets.all(24),
-                  child: Row(
-                    children: [
-                      Spacer(),
-                      _buildTabText("应用"),
-                      SizedBox(width: 32, height: 0,),
-                      _buildTabText("美图"),
-                      SizedBox(width: 32, height: 0,),
-                      _buildTabText("新鲜事"),
-                      SizedBox(width: 32, height: 0,),
-                      _buildTabText("GitHub"),
-                      SizedBox(width: 32, height: 0,),
-                      _buildTabText("关于我"),
-                    ],
-                  ),
-                ),
                 Spacer(),
                 Container(
                   margin: EdgeInsets.fromLTRB(120, 0, 120, 0),
@@ -86,15 +113,7 @@ class _IndexPageState extends State<IndexPage> {
                   ),
                 ),
                 Spacer(),
-                Container(
-                  margin: EdgeInsets.fromLTRB(120, 0, 120, 0),
-                  height: 120,
-                  child: QuickLinkCard(),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(36),topRight: Radius.circular(36)),
-                  ),
-                ),
+                _buildBottomNavBar()
               ],
             ),
           ),
