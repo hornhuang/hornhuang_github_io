@@ -5,7 +5,7 @@ import 'dart:html' as html;
 
 class TopNavigationBar extends StatelessWidget {
 
-  Widget _buildTabText(String title, {GestureTapCallback callback}) {
+  Widget _buildTabText(String title, GestureTapCallback? callback) {
     return InkWell(
         child: Text(
           title,
@@ -24,17 +24,19 @@ class TopNavigationBar extends StatelessWidget {
       padding: EdgeInsets.all(24),
       child: Row(
         children: [
-          _buildTabText("黎明韭菜"),
+          _buildTabText("黎明韭菜", _onCustomItemTapped(context, AboutMePage())),
           Spacer(),
-          _buildTabText("应用"),
+          _buildTabText("flutter", _onKLinkItemTapped(context, "https://github.com/trending/dart?since=monthly")),
           SizedBox(width: 32, height: 0,),
-          _buildTabText("美图", callback: _onKLinkItemTapped(context, "https://pixabay.com/")),
+          _buildTabText("iOS",  _onKLinkItemTapped(context, "https://github.com/trending/swift?since=monthly")),
           SizedBox(width: 32, height: 0,),
-          _buildTabText("新鲜事", callback: _onKLinkItemTapped(context, "https://maimai.cn/article/headline")),
+          _buildTabText("android", _onKLinkItemTapped(context, "https://github.com/trending/kotlin?since=monthly")),
           SizedBox(width: 32, height: 0,),
-          _buildTabText("GitHub", callback: _onKLinkItemTapped(context, "https://github.com/hornhuang")),
+          _buildTabText("新鲜事", _onKLinkItemTapped(context, "https://maimai.cn/article/headline")),
           SizedBox(width: 32, height: 0,),
-          _buildTabText("关于我", callback: _onCustomItemTapped(context, AboutMePage())),
+          _buildTabText("GitHub", _onKLinkItemTapped(context, "https://github.com/hornhuang")),
+          SizedBox(width: 32, height: 0,),
+          _buildTabText("关于我", _onCustomItemTapped(context, AboutMePage())),
         ],
       ),
     );

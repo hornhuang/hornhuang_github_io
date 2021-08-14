@@ -24,22 +24,21 @@ class AppTheme {
   final Color focus;
 
   /// Darkness adjusted text color. Will be Black in light mode, and White in dark
-  Color mainTextColor;
-  Color inverseTextColor;
+  Color? mainTextColor;
+  Color? inverseTextColor;
 
   /// Default constructor
   AppTheme(
-      {@required this.type,
-      @required this.bg1,
-      @required this.surface1,
-      @required this.surface2,
-      @required this.accent1,
-      @required this.greyWeak,
-      @required this.grey,
-      @required this.greyMedium,
-      @required this.greyStrong,
-      @required this.focus,
-      @required this.isDark}) {
+      {required this.type,
+      required this.bg1,
+      required this.surface1,
+      required this.surface2,
+      required this.accent1, required this.greyWeak,
+      required this.grey,
+      required this.greyMedium,
+      required this.greyStrong,
+      required this.focus,
+      required this.isDark}) {
     mainTextColor = isDark ? Colors.white : Colors.black;
     inverseTextColor = isDark ? Colors.black : Colors.white;
   }
@@ -80,11 +79,11 @@ class AppTheme {
           secondaryVariant: shift(accent1, .1),
           background: bg1,
           surface: surface1,
-          onBackground: mainTextColor,
-          onSurface: mainTextColor,
-          onError: mainTextColor,
-          onPrimary: inverseTextColor,
-          onSecondary: inverseTextColor,
+          onBackground: mainTextColor!,
+          onSurface: mainTextColor!,
+          onError: mainTextColor!,
+          onPrimary: inverseTextColor!,
+          onSecondary: inverseTextColor!,
           error: focus),
     );
     // Apply additional styling that is missed by ColorScheme

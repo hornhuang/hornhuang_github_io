@@ -8,7 +8,7 @@ import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 import '../widgets/swiper_widget.dart';
 
 class IndexPage extends StatefulWidget {
-  IndexPage({Key key, this.title}) : super(key: key);
+  IndexPage(Key? key, this.title) : super(key: key);
 
   final String title;
 

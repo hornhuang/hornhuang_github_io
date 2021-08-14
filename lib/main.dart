@@ -32,7 +32,7 @@ class _MyAppState extends State<_MyApp> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: IndexPage(title: 'Flutter Demo Home Page'),
+      home: IndexPage(null, 'Flutter Demo Home Page'),
     );
   }
 }
