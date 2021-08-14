@@ -1,4 +1,8 @@
 
 class AppUtil {
-  static String baseURL = "https://github.com/hornhuang/hornhuang_github_io/tree/main/assets/";
+  static String _assetsImageBaseURL = "assets/images/";
+
+  static String getImageAssets(String path) {
+    return _assetsImageBaseURL + path;
+  }
 }

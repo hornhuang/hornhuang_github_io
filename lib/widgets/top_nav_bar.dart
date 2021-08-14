@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hornhuang_github_io/views/about_me_page.dart';
+import 'package:hornhuang_github_io/utils/app_util.dart';
+import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
 import 'dart:html' as html;
 
 class TopNavigationBar extends StatelessWidget {
@@ -20,11 +21,18 @@ class TopNavigationBar extends StatelessWidget {
 
   Widget _buildTitleNavBar(BuildContext context) {
     return Container(
-      color: Colors.black.withAlpha(50),
-      padding: EdgeInsets.all(24),
+      height: 50,
+      color: Colors.black.withAlpha(56),
+      padding: EdgeInsets.fromLTRB(16, 0, 32, 0),
+      alignment: Alignment.center,
       child: Row(
         children: [
-          _buildTabText("黎明韭菜", _onCustomItemTapped(context, AboutMePage())),
+          Image.asset(
+            AppUtil.getImageAssets("Index/favicon.png"),
+            width: 32,
+            height: 32,
+            fit: BoxFit.cover,
+          ),
           Spacer(),
           _buildTabText("flutter", _onKLinkItemTapped(context, "https://github.com/trending/dart?since=monthly")),
           SizedBox(width: 32, height: 0,),

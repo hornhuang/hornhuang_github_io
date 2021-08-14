@@ -24,6 +24,10 @@ dependencies:
   provider: ^5.0.0
   # 轮播图
   flutter_swiper_null_safety: ^1.0.2
+  # webview_flutter:
+  webview_flutter: ^2.0.12
+  flutter_macos_webview: ^0.0.5
+  webview_windows: ^0.0.7
 
   flutter:
     sdk: flutter
@@ -50,10 +54,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/QuickLink/jianshu.png
-    - assets/QuickLink/juejin.png
-    - assets/QuickLink/csdn.png
-    - assets/QuickLink/wanandroid.png
+    - assets/images/QuickLink/
+    - assets/images/Index/
+    - assets/files/html/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

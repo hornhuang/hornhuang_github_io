@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
-import 'package:hornhuang_github_io/views/about_me_page.dart';
-import 'package:hornhuang_github_io/widgets/quick_link_card.dart';
+import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
+import 'package:hornhuang_github_io/widgets/bottom_nav_bar.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 
 import '../widgets/swiper_widget.dart';
@@ -64,8 +64,8 @@ class _IndexPageState extends State<IndexPage> {
                       ),
                       Spacer(),
                       ClipOval(
-                        child: Image.network(
-                          "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b6eae3250bb62fadb3d2527f466cf033_b.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631113070&t=c25deadb136d92e4aae0aa11fc6a4d5c",
+                        child: Image.asset(
+                          AppUtil.getImageAssets("Index/favicon.png"),
                           width: 280,
                           height: 280,
                           fit: BoxFit.cover,
