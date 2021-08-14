@@ -55,10 +55,7 @@ class TopNavigationBar extends StatelessWidget {
       if (page == null) {
         return;
       }
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => page),
-      );
+      html.window.open('http://localhost:52084/#' + AboutMePage.Route,"_self");
     };
   }
 

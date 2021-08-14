@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
 import 'package:hornhuang_github_io/views/index_page.dart';
 import 'package:provider/provider.dart';
 
@@ -21,18 +22,12 @@ class _MyAppState extends State<_MyApp> {
     return MaterialApp(
       title: '黎明韭菜',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: IndexPage(null, 'Flutter Demo Home Page'),
+      routes: {
+        IndexPage.Route: (context) => IndexPage(null, 'Flutter Demo Home Page'),
+        AboutMePage.Route: (context) => AboutMePage(),
+      },
     );
   }
 }

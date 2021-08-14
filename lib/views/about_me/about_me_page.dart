@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AboutMePage extends StatefulWidget {
+  static String Route = "/about_me";
+
   @override
   _AboutMePageState createState() => _AboutMePageState();
 }

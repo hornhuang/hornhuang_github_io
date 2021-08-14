@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
-import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
 import 'package:hornhuang_github_io/widgets/bottom_nav_bar.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 
 import '../widgets/swiper_widget.dart';
 
 class IndexPage extends StatefulWidget {
+  static String Route = "/";
+
   IndexPage(Key? key, this.title) : super(key: key);
 
   final String title;
