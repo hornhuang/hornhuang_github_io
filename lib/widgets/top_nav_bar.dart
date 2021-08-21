@@ -44,18 +44,18 @@ class TopNavigationBar extends StatelessWidget {
           SizedBox(width: 32, height: 0,),
           _buildTabText("GitHub", _onKLinkItemTapped(context, "https://github.com/hornhuang")),
           SizedBox(width: 32, height: 0,),
-          _buildTabText("关于我", _onCustomItemTapped(context, AboutMePage())),
+          _buildTabText("关于我", _onCustomItemTapped(context, AboutMePage.Route)),
         ],
       ),
     );
   }
 
-  GestureTapCallback _onCustomItemTapped(BuildContext context, Widget page) {
+  GestureTapCallback _onCustomItemTapped(BuildContext context, String route) {
     return (){
-      if (page == null) {
+      if (route.length == 0) {
         return;
       }
-      html.window.open('http://localhost:52084/#' + AboutMePage.Route,"_self");
+      Navigator.of(context).pushNamed(route);
     };
   }
 

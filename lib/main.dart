@@ -1,33 +1,31 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
-import 'package:hornhuang_github_io/views/index_page.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_ume/flutter_ume.dart'; // UME 框架
+import 'package:flutter_ume_kit_ui/flutter_ume_kit_ui.dart'; // UI 插件包
+import 'package:flutter_ume_kit_perf/flutter_ume_kit_perf.dart'; // 性能插件包
+import 'package:flutter_ume_kit_show_code/flutter_ume_kit_show_code.dart'; // 代码查看插件包
+import 'package:flutter_ume_kit_device/flutter_ume_kit_device.dart'; // 设备信息插件包
+import 'package:flutter_ume_kit_console/flutter_ume_kit_console.dart'; // debugPrint 插件包
+import 'package:flutter_ume_kit_dio/flutter_ume_kit_dio.dart'; // Dio 网络请求调试工具
+
+import 'app.dart';
 
 void main() {
-  // TODO: 数据获取
-  // Provider
-  runApp(_MyApp());
-}
-
-class _MyApp extends StatefulWidget {
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<_MyApp> {
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '黎明韭菜',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: {
-        IndexPage.Route: (context) => IndexPage(null, 'Flutter Demo Home Page'),
-        AboutMePage.Route: (context) => AboutMePage(),
-      },
-    );
+  if (kDebugMode) {
+    PluginManager.instance                                 // 注册插件
+      ..register(WidgetInfoInspector())
+      ..register(WidgetDetailInspector())
+      ..register(ColorSucker())
+      ..register(AlignRuler())
+      ..register(Performance())
+      ..register(ShowCode())
+      ..register(MemoryInfoPage())
+      ..register(CpuInfoPage())
+      ..register(DeviceInfoPanel())
+      ..register(Console());
+      // ..register(DioInspector(dio: dio));                  // 传入你的 Dio 实例
+    runApp(injectUMEWidget(child: MyApp(), enable: true)); // 初始化
+  } else {
+    runApp(MyApp());
   }
 }
