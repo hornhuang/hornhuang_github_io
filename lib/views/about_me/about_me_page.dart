@@ -1,9 +1,9 @@
-import 'package:hornhuang_github_io/common/route/app_link.dart';
-import 'package:hornhuang_github_io/widgets/webview/FakeUi.dart' if (dart.library.html) 'package:hornhuang_github_io/widgets/webview/RealUi.dart' as ui;
-import 'dart:html';
+import 'dart:html' as html;
+import 'dart:ui' as ui;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/common/route/app_link.dart';
+import 'package:hornhuang_github_io/utils/app_util.dart';
 
 class AboutMePage extends StatefulWidget {
   static String Route = "about_me";
@@ -17,25 +17,30 @@ class AboutMePage extends StatefulWidget {
 
 class _AboutMePageState extends State<AboutMePage> {
 
+  late html.IFrameElement _element;
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
+    // 注册
+    _element = html.IFrameElement()
+      ..style.border = 'none'
+      ..src = "https://hornhuang.github.io/assets/assets/files/html/neitui.html";
+    // 屏蔽报错
+    // ignore:undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
-        'hello-world-html',
-            (int viewId) => IFrameElement()
-          ..style.border = 'none'
-          ..src = '/assets/files/html/neitui.html');
+      'webInWeb',
+          (int viewId) => _element,
+    );
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Center(
-        child: HtmlElementView(
-          viewType: 'hello-world-html',
-        ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          Center(child: Text("Loading..."),),
+          HtmlElementView(viewType: 'webInWeb'),
+        ],
       ),
     );
   }

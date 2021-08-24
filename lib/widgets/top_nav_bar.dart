@@ -10,6 +10,24 @@ import 'enlarge_widget.dart';
 import 'package:flutter/cupertino.dart';
 
 class TopNavigationBar extends StatefulWidget {
+
+  static Widget nomalPopMenu() {
+    return new PopupMenuButton<String>(
+        itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+          new PopupMenuItem<String>(
+              value: 'value01', child: new Text('Item One')),
+          new PopupMenuItem<String>(
+              value: 'value02', child: new Text('Item Two')),
+          new PopupMenuItem<String>(
+              value: 'value03', child: new Text('Item Three')),
+          new PopupMenuItem<String>(
+              value: 'value04', child: new Text('I am Item Four'))
+        ],
+        onSelected: (String value) {
+//          setState(() { _bodyStr = value; });
+        });
+  }
+
   @override
   _TopNavigationBarState createState() => _TopNavigationBarState();
 }
@@ -32,11 +50,11 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
 
   Widget _buildTitleNavBar(BuildContext context) {
     return Container(
-      height: 50,
       color: Colors.black.withAlpha(56),
-      padding: EdgeInsets.fromLTRB(16, 0, 32, 0),
+      padding: EdgeInsets.fromLTRB(16, 16, 32, 16),
       alignment: Alignment.center,
-      child: Row(
+      child: Flex (
+        direction: Axis.horizontal,
         children: [
           Image.asset(
             AppUtil.getImageAssets("Index/favicon.png"),

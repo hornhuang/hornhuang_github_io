@@ -16,7 +16,7 @@ class MacOSAboutMePage extends StatelessWidget {
     );
 
     await webview.open(
-      url: 'https://google.com',
+      url: 'www.baidu.com',
       presentationStyle: presentationStyle,
       size: Size(400.0, 400.0),
       userAgent:

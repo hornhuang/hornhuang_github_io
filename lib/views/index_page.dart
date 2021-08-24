@@ -40,15 +40,22 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isPhone = AppUtil.ApplicationFrameWith(context) < 1000;
     return Scaffold(
+      appBar: isPhone ? AppBar(
+        leading: Text(''),
+        elevation: 10,
+        title: Text('PopMenuDemo'),
+        actions: <Widget>[TopNavigationBar.nomalPopMenu()],
+      ) : null,
       body: Stack(
         children: [
           SwiperWidget(),
-          TopNavigationBar(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                isPhone ? Container() : TopNavigationBar(),
                 Spacer(),
                 EnlargeWidget(UserInfoCard(), height: 1000),
                 Spacer(),

@@ -45,15 +45,28 @@ class QuickLinkCard extends StatelessWidget {
     // );
   }
 
+  List<Widget> _pcBody(BuildContext context) {
+    return [
+      _buildEnlargeWidget(context, _buildQuickLinkItem("掘金", AppUtil.getImageAssets("QuickLink/juejin.png"), "https://juejin.cn/")),
+      _buildEnlargeWidget(context, _buildQuickLinkItem("简书", AppUtil.getImageAssets("QuickLink/jianshu.png"), "https://www.jianshu.com/")),
+      _buildEnlargeWidget(context, _buildQuickLinkItem("CSDN", AppUtil.getImageAssets("QuickLink/csdn.png"), "https://www.csdn.net/")),
+      _buildEnlargeWidget(context, _buildQuickLinkItem("玩Android", AppUtil.getImageAssets("QuickLink/wanandroid.png"), "https://www.wanandroid.com/")),
+    ];
+  }
+
+  List<Widget> _phoneBody(BuildContext context) {
+    return [
+      _buildEnlargeWidget(context, _buildQuickLinkItem("掘金", AppUtil.getImageAssets("QuickLink/juejin.png"), "https://juejin.cn/")),
+      _buildEnlargeWidget(context, _buildQuickLinkItem("玩Android", AppUtil.getImageAssets("QuickLink/wanandroid.png"), "https://www.wanandroid.com/")),
+    ];
+  }
+
+  
   @override
   Widget build(BuildContext context) {
+    double width = AppUtil.ApplicationFrameWith(context) - 200;
     return Row(
-      children: [
-        _buildEnlargeWidget(context, _buildQuickLinkItem("掘金", AppUtil.getImageAssets("QuickLink/juejin.png"), "https://juejin.cn/")),
-        _buildEnlargeWidget(context, _buildQuickLinkItem("简书", AppUtil.getImageAssets("QuickLink/jianshu.png"), "https://www.jianshu.com/")),
-        _buildEnlargeWidget(context, _buildQuickLinkItem("CSDN", AppUtil.getImageAssets("QuickLink/csdn.png"), "https://www.csdn.net/")),
-        _buildEnlargeWidget(context, _buildQuickLinkItem("玩Android", AppUtil.getImageAssets("QuickLink/wanandroid.png"), "https://www.wanandroid.com/")),
-      ],
+      children: width > 500 ? _pcBody(context) : _phoneBody(context),
     );
   }
 

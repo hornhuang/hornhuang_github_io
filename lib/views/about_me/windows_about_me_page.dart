@@ -33,7 +33,7 @@ class _WindowsAboutMePageState extends State<WindowsAboutMePage> {
     });
 
     await _controller.setBackgroundColor(Colors.transparent);
-    await _controller.loadUrl('https://flutter.dev');
+    await _controller.loadUrl('www.baidu.com');
 
     if (!mounted) return;
 
