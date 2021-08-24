@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AboutMePage extends StatefulWidget {
-  static String Route = "/about_me";
+  static String Route = "about_me";
   AppLink? link;
 
   AboutMePage({Key? key, this.link}) : super(key: key);
