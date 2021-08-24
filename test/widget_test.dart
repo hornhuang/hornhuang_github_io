@@ -13,7 +13,7 @@ import 'package:hornhuang_github_io/views/index_page.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(IndexPage(null, 'Flutter Demo Home Page'));
+    await tester.pumpWidget(IndexPage());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

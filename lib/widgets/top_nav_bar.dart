@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
 import 'dart:html' as html;
@@ -81,7 +82,11 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
       if (route.length == 0) {
         return;
       }
-      Navigator.of(context).pushNamed(route);
+      Navigator.of(context).pushNamed(AppLink(
+        pageId: AboutMePage.Route,
+        bookId: null,
+        user: null,
+      ).toLocation());
     };
   }
 
