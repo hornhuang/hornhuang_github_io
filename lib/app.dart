@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/common/route/route_page.dart';
 
 import 'common/route/route_configuration.dart';
-import 'views/index_page.dart';
 
 class MyApp extends StatefulWidget {
 
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: IndexPage.Route,
+      initialRoute: RoutePage.Route,
       onGenerateRoute: RouteConfiguration.onGenerateRoute,
     );
   }

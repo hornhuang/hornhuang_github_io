@@ -13,7 +13,7 @@ import 'package:hornhuang_github_io/widgets/user_info_card.dart';
 import '../../widgets/swiper_widget.dart';
 
 class RoutePage extends StatefulWidget {
-  static String Route = "";
+  static String Route = "/";
 
   final String? match;
 

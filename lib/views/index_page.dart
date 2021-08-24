@@ -10,7 +10,7 @@ import 'package:hornhuang_github_io/widgets/user_info_card.dart';
 import '../widgets/swiper_widget.dart';
 
 class IndexPage extends StatefulWidget {
-  static String Route = "/";
+  static String Route = "";
   AppLink? link;
 
   IndexPage({Key? key, this.link}) : super(key: key);

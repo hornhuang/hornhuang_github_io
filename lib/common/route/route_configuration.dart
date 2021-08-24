@@ -11,7 +11,7 @@ class RouteConfiguration {
     //       (context, match) => Article.getArticlePage(match),
     // ),
     Path(
-      r'^' + IndexPage.Route,
+      r'^' + RoutePage.Route,
           (context, match) => RoutePage(null, match),
     ),
   ];
