@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
+import 'package:hornhuang_github_io/utils/statement_utils.dart';
 import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
 import 'dart:html' as html;
 
@@ -9,30 +10,52 @@ import 'enlarge_widget.dart';
 
 import 'package:flutter/cupertino.dart';
 
+enum _popMenu {
+  flutter,
+  android,
+  ios,
+  things,
+  github,
+  about
+}
+
 class TopNavigationBar extends StatefulWidget {
 
   static Widget nomalPopMenu() {
-    return new PopupMenuButton<String>(
-        itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-          new PopupMenuItem<String>(
-              value: 'value01', child: new Text('Item One')),
-          new PopupMenuItem<String>(
-              value: 'value02', child: new Text('Item Two')),
-          new PopupMenuItem<String>(
-              value: 'value03', child: new Text('Item Three')),
-          new PopupMenuItem<String>(
-              value: 'value04', child: new Text('I am Item Four'))
+    return new PopupMenuButton<_popMenu>(
+        itemBuilder: (BuildContext context) => <PopupMenuItem<_popMenu>>[
+          new PopupMenuItem<_popMenu>(
+              value: _popMenu.flutter, child: new Text('flutter')),
+          new PopupMenuItem<_popMenu>(
+              value: _popMenu.ios, child: new Text('ios')),
+          new PopupMenuItem<_popMenu>(
+              value: _popMenu.android, child: new Text('android')),
+          new PopupMenuItem<_popMenu>(
+              value: _popMenu.things, child: new Text('新鲜事')),
+          new PopupMenuItem<_popMenu>(
+              value: _popMenu.github, child: new Text('GitHub')),
+          new PopupMenuItem<_popMenu>(
+              value: _popMenu.about, child: new Text('关于我'))
         ],
-        onSelected: (String value) {
-//          setState(() { _bodyStr = value; });
+        onSelected: (_popMenu value) {
+          String link = case2(value, {
+            _popMenu.flutter : "https://github.com/trending/dart?since=monthly",
+            _popMenu.ios : "https://github.com/trending/swift?since=monthly",
+            _popMenu.android : "https://github.com/trending/kotlin?since=monthly",
+            _popMenu.things : "https://maimai.cn/article/headline",
+            _popMenu.github : "https://github.com/hornhuang",
+            _popMenu.about : "http://localhost:50271/#/?pg=about_me&",
+          }, "");
+          html.window.open(link, 'new tab');
+          // print("asdasdasdas runtimeType ${func.runtimeType}");
         });
   }
 
   @override
-  _TopNavigationBarState createState() => _TopNavigationBarState();
+  TopNavigationBarState createState() => TopNavigationBarState();
 }
 
-class _TopNavigationBarState extends State<TopNavigationBar> {
+class TopNavigationBarState extends State<TopNavigationBar> {
   GlobalKey anchorKey = GlobalKey();
 
   Widget _buildTabText(String title, GestureTapCallback? callback) {
