@@ -4,6 +4,7 @@ import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/utils/statement_utils.dart';
 import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
+import 'package:hornhuang_github_io/views/trend_page.dart';
 import 'dart:html' as html;
 
 import 'enlarge_widget.dart';
@@ -21,7 +22,7 @@ enum _popMenu {
 
 class TopNavigationBar extends StatefulWidget {
 
-  static Widget nomalPopMenu() {
+  static Widget nomalPopMenu(BuildContext context) {
     return new PopupMenuButton<_popMenu>(
         itemBuilder: (BuildContext context) => <PopupMenuItem<_popMenu>>[
           new PopupMenuItem<_popMenu>(
@@ -42,12 +43,19 @@ class TopNavigationBar extends StatefulWidget {
             _popMenu.flutter : "https://github.com/trending/dart?since=monthly",
             _popMenu.ios : "https://github.com/trending/swift?since=monthly",
             _popMenu.android : "https://github.com/trending/kotlin?since=monthly",
-            _popMenu.things : "https://maimai.cn/article/headline",
+            _popMenu.things : TrendPage.Route,
             _popMenu.github : "https://github.com/hornhuang",
-            _popMenu.about : "http://localhost:50271/#/?pg=about_me&",
+            _popMenu.about : AboutMePage.Route,
           }, "");
-          html.window.open(link, 'new tab');
-          // print("asdasdasdas runtimeType ${func.runtimeType}");
+          if (value == _popMenu.things || value == _popMenu.about)
+            Navigator.of(context).pushNamed(AppLink(
+              pageId: link,
+              bookId: null,
+              user: null,
+            ).toLocation());
+          else {
+            html.window.open(link, 'new tab');
+          }
         });
   }
 
@@ -92,7 +100,7 @@ class TopNavigationBarState extends State<TopNavigationBar> {
           SizedBox(width: 32, height: 0,),
           _buildEnlargeWidget(context, _buildTabText("android", _onKLinkItemTapped(context, "https://github.com/trending/kotlin?since=monthly"))),
           SizedBox(width: 32, height: 0,),
-          _buildEnlargeWidget(context, _buildTabText("新鲜事", _onKLinkItemTapped(context, "https://maimai.cn/article/headline"))),
+          _buildEnlargeWidget(context, _buildTabText("新鲜事", _onCustomItemTapped(context, TrendPage.Route))),
           SizedBox(width: 32, height: 0,),
           _buildEnlargeWidget(context, _buildTabText("GitHub", _onKLinkItemTapped(context, "https://github.com/hornhuang"))),
           SizedBox(width: 32, height: 0,),
@@ -124,7 +132,7 @@ class TopNavigationBarState extends State<TopNavigationBar> {
         return;
       }
       Navigator.of(context).pushNamed(AppLink(
-        pageId: AboutMePage.Route,
+        pageId: route,
         bookId: null,
         user: null,
       ).toLocation());

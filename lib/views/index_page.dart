@@ -46,7 +46,7 @@ class _IndexPageState extends State<IndexPage> {
         leading: Text(''),
         elevation: 10,
         title: Text('PopMenuDemo'),
-        actions: <Widget>[TopNavigationBar.nomalPopMenu()],
+        actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
       ) : null,
       body: Stack(
         children: [

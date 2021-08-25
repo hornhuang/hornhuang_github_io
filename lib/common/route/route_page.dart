@@ -6,6 +6,7 @@ import 'package:hornhuang_github_io/utils/statement_utils.dart';
 import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
 import 'package:hornhuang_github_io/views/error_page.dart';
 import 'package:hornhuang_github_io/views/index_page.dart';
+import 'package:hornhuang_github_io/views/trend_page.dart';
 import 'package:hornhuang_github_io/widgets/bottom_nav_bar.dart';
 import 'package:hornhuang_github_io/widgets/enlarge_widget.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
@@ -33,7 +34,8 @@ class _RoutePageState extends State<RoutePage> {
   Widget _configPage(AppLink link) {
     Widget page = case2(link.pageId, {
       IndexPage.Route: IndexPage(link: link),
-      AboutMePage.Route: AboutMePage(link: link)
+      AboutMePage.Route: AboutMePage(link: link),
+      TrendPage.Route: TrendPage(link: link),
     }, ErrorPage("找不到页面::${link.toLocation()}", null));
     return page;
   }

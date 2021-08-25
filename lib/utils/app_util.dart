@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
@@ -18,4 +20,9 @@ class AppUtil {
   }
 
   static double ApplicationFrameHeight = window.physicalSize.height;
+
+  static bool isNarrow(BuildContext context) {
+    bool smallThen1100 = AppUtil.ApplicationFrameWith(context) < 1100;
+    return smallThen1100;
+  }
 }

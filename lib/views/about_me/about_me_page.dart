@@ -3,7 +3,6 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
-import 'package:hornhuang_github_io/utils/app_util.dart';
 
 class AboutMePage extends StatefulWidget {
   static String Route = "about_me";
