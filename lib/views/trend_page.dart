@@ -4,9 +4,8 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
-import 'package:hornhuang_github_io/widgets/tab/tab_item.dart';
-import 'package:hornhuang_github_io/widgets/tab/tab_item_builder.dart';
-import 'package:hornhuang_github_io/widgets/tab/web_tab_controller.dart';
+import 'package:tab_controller_web/tab/tab_item_builder.dart';
+import 'package:tab_controller_web/web_tab_controller.dart';
 
 class TrendPage extends StatefulWidget {
   static String Route = "trend";
@@ -17,7 +16,6 @@ class TrendPage extends StatefulWidget {
   @override
   _TrendPageState createState() => _TrendPageState();
 }
-
 
 class _TrendPageState extends State<TrendPage> {
 
