@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/widgets/tab/tab_item_builder.dart';
 
 class TabItem extends StatefulWidget {
   String title;
-
   Icon? icon;
   bool isSelected;
   GestureTapCallback? ontap;
   int? flex;
+  int index;
 
-  TabItem({this.title = "undefind", Key? key, this.icon = null, this.isSelected = false, this.ontap = null, this.flex = 1}) : super(key: key);
+  TabItem({this.title = "undefind", Key? key, this.icon, this.isSelected = false, this.ontap, this.flex = 1, this.index = 0}) : super(key: key);
+
+  static TabItem builder(TabItemBuilder itemBuilder, {Key? tabKey}) {
+    TabItem item = TabItem(key: itemBuilder.key ?? tabKey ?? UniqueKey(),);
+    item.title = itemBuilder.title;
+    item.icon = itemBuilder.icon;
+    item.isSelected = itemBuilder.isSelected;
+    item.ontap = itemBuilder.ontap;
+    item.flex = itemBuilder.flex;
+    return item;
+  }
 
   @override
-  _TabItemState createState() => _TabItemState();
+  TabItemState createState() => TabItemState();
 }
 
-class _TabItemState extends State<TabItem> {
+class TabItemState extends State<TabItem> {
+
+  onStateChanged(bool isSelected) {
+    setState(() {
+      widget.isSelected = isSelected;
+    });
+  }
 
   Widget _buildContent() {
     return Container(
@@ -31,12 +48,19 @@ class _TabItemState extends State<TabItem> {
     );
   }
 
+  GestureTapCallback? _onTapItem() {
+    return (){
+      widget.ontap?.call();
+      setState(() { });
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
         child: InkWell(
           child: _buildContent(),
-          onTap: widget.ontap,
+          onTap: _onTapItem(),
         )
     );
   }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/widgets/tab/tab_item.dart';
+import 'package:hornhuang_github_io/widgets/tab/tab_item_builder.dart';
 import 'package:hornhuang_github_io/widgets/tab/web_tab_controller.dart';
 
 class TrendPage extends StatefulWidget {
@@ -75,15 +76,15 @@ class _TrendPageState extends State<TrendPage> {
   Widget _buildNarrowView() {
     return WebTabController(
       tabs: [
-        TabItem(
+        TabItemBuilder(
           icon: Icon(Icons.directions_car),
           title: "Android",
         ),
-        TabItem(
+        TabItemBuilder(
           icon: Icon(Icons.directions_bike),
           title: "iOS",
         ),
-        TabItem(
+        TabItemBuilder(
           icon: Icon(Icons.directions_boat),
           title: 'Flutter',
         ),

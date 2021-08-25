@@ -3,6 +3,8 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/widgets/tab/tab_item.dart';
 
+import 'tab_item_builder.dart';
+
 enum WebTabLocation {
   top,
   bottom,
@@ -11,7 +13,7 @@ enum WebTabLocation {
 }
 
 class WebTabController extends StatefulWidget {
-  List<TabItem> tabs;
+  List<TabItemBuilder> tabs;
   List<Widget> body;
 
   WebTabLocation location;
@@ -21,7 +23,7 @@ class WebTabController extends StatefulWidget {
 
   WebTabController({
     Key? key,
-    this.tabs = const <TabItem>[],
+    this.tabs = const <TabItemBuilder>[],
     this.body = const <Widget>[],
     this.location = WebTabLocation.top,
     this.color = Colors.white,
@@ -33,25 +35,44 @@ class WebTabController extends StatefulWidget {
 }
 
 class _WebTabControllerState extends State<WebTabController> {
+  List<TabItem> tabItems = [];
+  List<GlobalKey<TabItemState>> keys = [];
+  TabItem? selectedItem;
+  GlobalKey<TabItemState>? selectedKey;
   int selectedIndex = 0;
 
-  Widget _buildTabs() {
-    widget.tabs[0].isSelected = true;
+  _configItemTabs() {
+    if (widget.tabs.length < 1) {
+      return;
+    }
     widget.tabs
-      .asMap()
-      .forEach((index, element) {
-        element.ontap = () {
-          widget.tabs.forEach((element) {
-            element.isSelected = false;
-          });
-          selectedIndex = index;
-          element.isSelected = true;
-          setState(() { });
-        };
-      });
+        .asMap()
+        .forEach((index, element) {
+          GlobalKey<TabItemState> key = GlobalKey();
+          keys.add(key);
+          TabItem tab = TabItem.builder(element, tabKey: key);
+          tab.index = index;
+          tab.ontap = () {
+            element.ontap?.call();
+            setState(() {
+              selectedKey?.currentState?.onStateChanged(false);
+              selectedIndex = index;
+              tab.isSelected = true;
+              selectedItem = tab;
+              selectedKey = keys[index];
+            });
+          };
+          tabItems.add(tab);
+    });
+    selectedKey = keys[0];
+    selectedItem = tabItems[0];
+    selectedItem?.isSelected = true;
+  }
+
+  Widget _buildTabs() {
     return Row(
       children: [
-        ...widget.tabs
+        ...tabItems
       ],
     );
   }
@@ -89,6 +110,12 @@ class _WebTabControllerState extends State<WebTabController> {
             ..._configBody()
           ],
         );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _configItemTabs();
   }
 
   @override
