@@ -29,8 +29,7 @@ dependencies:
   flutter_macos_webview: ^0.0.5
   webview_windows: ^0.0.7
   # tab controller web
-  tab_controller_web:
-    path: ../tab_controller_web
+  easy_tab_controller: ^1.0.1
 
   flutter:
     sdk: flutter

@@ -1,11 +1,10 @@
 import 'dart:html' as html;
 import 'dart:ui' as ui;
 
+import 'package:easy_tab_controller/easy_tab_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
-import 'package:tab_controller_web/tab/tab_item_builder.dart';
-import 'package:tab_controller_web/web_tab_controller.dart';
 
 class TrendPage extends StatefulWidget {
   static String Route = "trend";
@@ -72,7 +71,8 @@ class _TrendPageState extends State<TrendPage> {
   }
 
   Widget _buildNarrowView() {
-    return WebTabController(
+    return EasyTabController(
+      location: WebTabLocation.left,
       tabs: [
         TabItemBuilder(
           icon: Icon(Icons.directions_car),
