@@ -45,7 +45,7 @@ class _IndexPageState extends State<IndexPage> {
       appBar: isPhone ? AppBar(
         leading: Text(''),
         elevation: 10,
-        title: Text('PopMenuDemo'),
+        title: Text('Hey Guys～'),
         actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
       ) : null,
       body: Stack(
