@@ -30,6 +30,8 @@ dependencies:
   webview_windows: ^0.0.7
   # tab controller web
   easy_tab_controller: ^1.0.1
+  # GetX is an extra-light and powerful solution for Flutter.
+  get: ^4.1.3
 
   flutter:
     sdk: flutter
