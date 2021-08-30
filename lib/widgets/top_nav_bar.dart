@@ -36,7 +36,7 @@ class TopNavigationBar extends StatefulWidget {
           new PopupMenuItem<_popMenu>(
               value: _popMenu.github, child: new Text('GitHub')),
           new PopupMenuItem<_popMenu>(
-              value: _popMenu.about, child: new Text('关于我'))
+              value: _popMenu.about, child: new Text('福利'))
         ],
         onSelected: (_popMenu value) {
           String link = case2(value, {
@@ -104,7 +104,7 @@ class TopNavigationBarState extends State<TopNavigationBar> {
           SizedBox(width: 32, height: 0,),
           _buildEnlargeWidget(context, _buildTabText("GitHub", _onKLinkItemTapped(context, "https://github.com/hornhuang"))),
           SizedBox(width: 32, height: 0,),
-          _buildEnlargeWidget(context, _buildTabText("关于我", _onCustomItemTapped(context, WelfarePage.Route)))
+          _buildEnlargeWidget(context, _buildTabText("福利", _onCustomItemTapped(context, WelfarePage.Route)))
         ],
       ),
     );
