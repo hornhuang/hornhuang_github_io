@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/utils/statement_utils.dart';
-import 'package:hornhuang_github_io/views/about_me/about_me_page.dart';
+import 'package:hornhuang_github_io/views/about_me/welfare_me_page.dart';
 import 'package:hornhuang_github_io/views/trend_page.dart';
 import 'dart:html' as html;
 
@@ -45,7 +45,7 @@ class TopNavigationBar extends StatefulWidget {
             _popMenu.android : "https://github.com/trending/kotlin?since=monthly",
             _popMenu.things : TrendPage.Route,
             _popMenu.github : "https://github.com/hornhuang",
-            _popMenu.about : AboutMePage.Route,
+            _popMenu.about : WelfarePage.Route,
           }, "");
           if (value == _popMenu.things || value == _popMenu.about)
             Navigator.of(context).pushNamed(AppLink(
@@ -104,7 +104,7 @@ class TopNavigationBarState extends State<TopNavigationBar> {
           SizedBox(width: 32, height: 0,),
           _buildEnlargeWidget(context, _buildTabText("GitHub", _onKLinkItemTapped(context, "https://github.com/hornhuang"))),
           SizedBox(width: 32, height: 0,),
-          _buildEnlargeWidget(context, _buildTabText("关于我", _onCustomItemTapped(context, AboutMePage.Route)))
+          _buildEnlargeWidget(context, _buildTabText("关于我", _onCustomItemTapped(context, WelfarePage.Route)))
         ],
       ),
     );

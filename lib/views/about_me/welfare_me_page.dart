@@ -5,17 +5,17 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 
-class AboutMePage extends StatefulWidget {
+class WelfarePage extends StatefulWidget {
   static String Route = "about_me";
   AppLink? link;
 
-  AboutMePage({Key? key, this.link}) : super(key: key);
+  WelfarePage({Key? key, this.link}) : super(key: key);
 
   @override
-  _AboutMePageState createState() => _AboutMePageState();
+  _WelfarePageState createState() => _WelfarePageState();
 }
 
-class _AboutMePageState extends State<AboutMePage> {
+class _WelfarePageState extends State<WelfarePage> {
 
   late html.IFrameElement _element;
   @override
