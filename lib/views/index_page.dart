@@ -30,7 +30,7 @@ class _IndexPageState extends State<IndexPage> {
           child: QuickLinkCard(),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(36),topRight: Radius.circular(36)),
+            borderRadius: BorderRadius.all(Radius.circular(36)),
           ),
         ),
         Spacer(),
@@ -43,6 +43,7 @@ class _IndexPageState extends State<IndexPage> {
     bool isPhone = AppUtil.ApplicationFrameWith(context) < 1000;
     return Scaffold(
       appBar: isPhone ? AppBar(
+        backgroundColor: Theme.of(context).accentColor,
         leading: Text(''),
         elevation: 10,
         title: Text('Hey Guys～'),
@@ -50,16 +51,17 @@ class _IndexPageState extends State<IndexPage> {
       ) : null,
       body: Stack(
         children: [
-          SwiperWidget(),
+          // SwiperWidget(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 isPhone ? Container() : TopNavigationBar(),
                 Spacer(),
-                EnlargeWidget(UserInfoCard(), height: 1000),
+                UserInfoCard(),
                 Spacer(),
-                _buildBottomNavBar()
+                _buildBottomNavBar(),
+                SizedBox(height: 16,)
               ],
             ),
           ),

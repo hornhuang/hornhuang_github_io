@@ -6,21 +6,33 @@ import 'package:hornhuang_github_io/utils/app_util.dart';
 
 import 'enlarge_widget.dart';
 
-class QuickLinkCard extends StatelessWidget {
+class QuickLinkCard extends StatefulWidget {
+  const QuickLinkCard({Key? key}) : super(key: key);
+
+  @override
+  _QuickLinkCardState createState() => _QuickLinkCardState();
+}
+
+class _QuickLinkCardState extends State<QuickLinkCard> {
+
+  double get itemWidth => isPhone ? 66 : 88;
+  double get itemHeight => isPhone ? 48 : 64;
+  double get itemInterval => isPhone ? 48 : 64;
+  bool isPhone = false;
 
   Widget _buildQuickLinkItem(String title, String imageAsset, String linkUrl) {
     return InkWell(
       child: Row(
         children: [
-          SizedBox(width: 64,),
+          SizedBox(width: itemInterval,),
           Container(
-            width: 88,
-            height: 66,
+            width: itemWidth,
+            height: itemHeight,
             child: Image.asset(
                 imageAsset
             ),
           ),
-          SizedBox(width: 64,),
+          SizedBox(width: itemInterval,),
         ],
       ),
       onTap: (){
@@ -61,12 +73,14 @@ class QuickLinkCard extends StatelessWidget {
     ];
   }
 
-  
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     double width = AppUtil.ApplicationFrameWith(context) - 200;
+    isPhone = width <= 684;
+    if(isPhone != isPhone) setState(() {});
     return Row(
-      children: width > 500 ? _pcBody(context) : _phoneBody(context),
+      children: isPhone ? _phoneBody(context) : _pcBody(context),
     );
   }
 
