@@ -1,5 +1,5 @@
 import 'package:universal_html/html.dart' as html;
-import 'package:hornhuang_github_io/widgets/webview/FakeUi.dart' if (dart.library.html) 'RealUi.dart' as ui;
+import 'package:hornhuang_github_io/utils/FakeUi.dart' if (dart.library.html) 'package:hornhuang_github_io/utils/RealUi.dart' as ui;
 
 import 'package:easy_tab_controller/easy_tab_controller.dart';
 import 'package:flutter/material.dart';
