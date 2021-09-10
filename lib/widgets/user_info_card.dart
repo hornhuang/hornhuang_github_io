@@ -19,13 +19,13 @@ class UserInfoCard extends StatelessWidget {
                   fontWeight: FontWeight.w500
                 ),
               ),
-              SizedBox(height: 32,),
+              SizedBox(height: 16,),
               Container(
                 width: 280,
                 child: Text(
-                  "一只客户端开发猿，活跃于掘金、简书等论坛。一点一滴建设开源平台，完善中文互联网技术。\n· 技能：iOS & flutter & android\n· 被动：帮小伙伴内推大厂\n· 法术：bilibili @ 黎明韭菜",
+                  "「介绍」一只客户端开发猿，活跃于掘金、简书等论坛\n「目标」一点一滴建设开源平台，完善中文互联网技术\n【技能】iOS & flutter & android\n【被动】帮小伙伴内推大厂，一个萝卜一个坑，走过路过不要错过\n【法术】求个三连，bilibili @ 黎明韭菜",
                   textAlign: TextAlign.left,
-                  style: TextStyle(color: Colors.black54, fontSize: 18),
+                  style: TextStyle(color: Colors.black87, fontSize: 16),
                 ),
               ),
             ],
@@ -37,7 +37,7 @@ class UserInfoCard extends StatelessWidget {
               AppUtil.getImageAssets("Index/favicon.png"),
               width: 280,
               height: 280,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
         ),
