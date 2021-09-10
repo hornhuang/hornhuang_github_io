@@ -1,5 +1,5 @@
 import 'package:universal_html/html.dart' as html;
-import 'dart:ui' as ui;
+import 'package:hornhuang_github_io/widgets/webview/FakeUi.dart' if (dart.library.html) 'RealUi.dart' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';

@@ -71,7 +71,7 @@ class _IndexPageState extends State<IndexPage> {
               backgroundColor: Theme.of(context).accentColor,
               leading: Text(''),
               elevation: 10,
-              title: Text('Hey Guys～'),
+              title: Text('Welcome!'),
               actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
             )
           : null,
