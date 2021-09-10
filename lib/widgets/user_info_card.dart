@@ -75,10 +75,11 @@ class UserInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double padding = AppUtil.isNarrow(context) ? 16 : 64;
     double cardWidth = AppUtil.ApplicationFrameWith(context) - 200;
     return Container(
       width: cardWidth > 880 ? 880 : cardWidth,
-      padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
+      padding: EdgeInsets.all(padding),
       child: Center(
         child: AppUtil.isNarrow(context) ? _buildPhoneBody() : _buildPcBody(),
       ),

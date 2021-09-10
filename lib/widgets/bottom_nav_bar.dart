@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'package:universal_html/html.dart' as html;
 
 import 'package:hornhuang_github_io/utils/app_util.dart';
 
