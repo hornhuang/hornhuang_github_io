@@ -18,7 +18,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: '黎明韭菜',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        primaryColor: Colors.white,
+        accentColor: Colors.white,
       ),
       initialRoute: RoutePage.Route,
       onGenerateRoute: RouteConfiguration.onGenerateRoute,

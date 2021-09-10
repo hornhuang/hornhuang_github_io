@@ -71,7 +71,8 @@ class TopNavigationBarState extends State<TopNavigationBar> {
         child: Text(
           title,
           style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
+              fontWeight: FontWeight.w300,
               fontSize: 16
           ),
         ),
@@ -81,7 +82,6 @@ class TopNavigationBarState extends State<TopNavigationBar> {
 
   Widget _buildTitleNavBar(BuildContext context) {
     return Container(
-      color: Colors.black.withAlpha(56),
       padding: EdgeInsets.fromLTRB(16, 16, 32, 16),
       alignment: Alignment.center,
       child: Flex (

@@ -11,16 +11,21 @@ class UserInfoCard extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "Hi~ I'm Hornhuang",
+                "圆号本昊@hornhuang",
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.black, fontSize: 32),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w500
+                ),
               ),
+              SizedBox(height: 32,),
               Container(
                 width: 280,
                 child: Text(
-                  "I have always enjoyed working with computers, so it was an easy decision to major in Information and Computing Science at Hunan University of Science and Technology with a plan to enter IT field.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black54, fontSize: 20),
+                  "一只客户端开发猿，活跃于掘金、简书等论坛。一点一滴建设开源平台，完善中文互联网技术。\n· 技能：iOS & flutter & android\n· 被动：帮小伙伴内推大厂\n· 法术：bilibili @ 黎明韭菜",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.black54, fontSize: 18),
                 ),
               ),
             ],
@@ -78,8 +83,16 @@ class UserInfoCard extends StatelessWidget {
         child: AppUtil.isNarrow(context) ? _buildPhoneBody() : _buildPcBody(),
       ),
       decoration: BoxDecoration(
-        color: Colors.black.withAlpha(26),
+        color: Colors.white70,
         borderRadius: BorderRadius.all(Radius.circular(36)),
+        boxShadow: [
+          BoxShadow(
+              color: Color(0xff63b5f7).withAlpha(24),
+              offset: Offset(-4.0, 6.0), //陰影x軸偏移量
+              blurRadius: 16, //陰影模糊程度
+              spreadRadius: 8 //陰影擴散程度
+          )
+        ]
       ),
     );
   }
