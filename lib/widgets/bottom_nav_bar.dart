@@ -75,9 +75,7 @@ class _QuickLinkCardState extends State<QuickLinkCard> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    double width = AppUtil.ApplicationFrameWith(context) - 200;
-    isPhone = width <= 684;
+    isPhone = AppUtil.isNarrow(context);
     if(isPhone != isPhone) setState(() {});
     return Row(
       children: isPhone ? _phoneBody(context) : _pcBody(context),

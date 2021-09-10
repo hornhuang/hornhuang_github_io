@@ -22,7 +22,7 @@ class AppUtil {
   static double ApplicationFrameHeight = window.physicalSize.height;
 
   static bool isNarrow(BuildContext context) {
-    bool smallThen1100 = AppUtil.ApplicationFrameWith(context) < 1100;
+    bool smallThen1100 = AppUtil.ApplicationFrameWith(context) < 896;
     return smallThen1100;
   }
 }
