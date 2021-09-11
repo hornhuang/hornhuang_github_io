@@ -10,7 +10,7 @@
 
 运行钱需要对你的编译器进行一些设置
 
-#### # flutter
+## # flutter
 
 确定你的 flutter 已经安装，且 flutter 的版本与本项目一致，操作方法为如下所示
 
@@ -29,7 +29,7 @@ Engine • revision 241c87ad80
 Tools • Dart 2.13.4
 ```
 
-#### # no-sound-null-safety
+## # no-sound-null-safety
 
 项目为了同时兼容 flutter_web 和 iOS/android 等多平台，所以做了很多兼容性操作，这里编译是需要开启 no-sound-null-safety
 
