@@ -24,6 +24,28 @@
 </table>
 
   
+# 支持
+  
+项目采用了许多优秀的开原仓库，大佬们在百忙之中依然维持着怎么好的开源项目，让我们的开发过程更加丝滑，这里表示崇高的敬意与感谢
+  
+```css
+  provider: ^5.0.0
+  # 轮播图
+  flutter_swiper_null_safety: ^1.0.2
+  # webview_flutter:
+  webview_flutter: ^2.0.12
+  flutter_macos_webview: ^0.0.5
+  webview_windows: ^0.0.7
+  # tab controller web
+  easy_tab_controller: ^1.0.1
+  # GetX is an extra-light and powerful solution for Flutter.
+  get: ^4.1.3
+  # 动画
+  animations: ^2.0.0
+  # dart:html 不支持 Android 所以要换成这个
+  universal_html: ^1.2.1
+```
+
   
 # MIT License
 
