@@ -1,41 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/widgets/bottom_nav_bar.dart';
 import 'package:hornhuang_github_io/widgets/enlarge_widget.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 import 'package:hornhuang_github_io/widgets/user_info_card.dart';
 
-import '../widgets/swiper_widget.dart';
-
-class IndexPage extends StatefulWidget {
-  static String Route = "index";
-  AppLink? link;
-
-  IndexPage({Key? key, this.link}) : super(key: key);
-
+class IndexHeadWidget extends StatefulWidget {
   @override
-  _IndexPageState createState() => _IndexPageState();
+  _IndexHeadWidgetState createState() => _IndexHeadWidgetState();
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _IndexHeadWidgetState extends State<IndexHeadWidget> {
+
   Widget _buildBackground() {
     return Column(
       children: [
         Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: new LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [
-                      Colors.white,
-                      Color(0xFFfafafa),
-                    ]),
-              ),
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: new LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.white,
+                    Color(0xFFfafafa),
+                  ]),
             ),
+          ),
         ),
         Image.asset(
           AppUtil.getImageAssets("Index/background.jpeg"),
@@ -68,12 +61,12 @@ class _IndexPageState extends State<IndexPage> {
     return Scaffold(
       appBar: isPhone
           ? AppBar(
-              backgroundColor: Theme.of(context).accentColor,
-              leading: Text(''),
-              elevation: 10,
-              title: Text('Welcome!'),
-              actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
-            )
+        backgroundColor: Theme.of(context).accentColor,
+        leading: Text(''),
+        elevation: 10,
+        title: Text('Welcome!'),
+        actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
+      )
           : null,
       body: Stack(
         children: [
