@@ -20,17 +20,41 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  Widget _buildBackground() {
+    return Column(
+      children: [
+        Expanded(
+            flex: 1,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: new LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.white,
+                      Color(0xFFfafafa),
+                    ]),
+              ),
+            ),
+        ),
+        Image.asset(
+          AppUtil.getImageAssets("Index/background.jpeg"),
+          fit: BoxFit.fill,
+        ),
+      ],
+    );
+  }
 
   Widget _buildBottomNavBar() {
     return Row(
       children: [
         Spacer(),
-        Container (
+        Container(
           height: 120,
           child: QuickLinkCard(),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(36),topRight: Radius.circular(36)),
+            borderRadius: BorderRadius.all(Radius.circular(36)),
           ),
         ),
         Spacer(),
@@ -42,24 +66,31 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     bool isPhone = AppUtil.ApplicationFrameWith(context) < 1000;
     return Scaffold(
-      appBar: isPhone ? AppBar(
-        leading: Text(''),
-        elevation: 10,
-        title: Text('Hey Guys～'),
-        actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
-      ) : null,
+      appBar: isPhone
+          ? AppBar(
+              backgroundColor: Theme.of(context).accentColor,
+              leading: Text(''),
+              elevation: 10,
+              title: Text('Welcome!'),
+              actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
+            )
+          : null,
       body: Stack(
         children: [
-          SwiperWidget(),
+          _buildBackground(),
+          // SwiperWidget(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 isPhone ? Container() : TopNavigationBar(),
                 Spacer(),
-                EnlargeWidget(UserInfoCard(), height: 1000),
+                EnlargeWidget(UserInfoCard(), height: 64),
                 Spacer(),
-                _buildBottomNavBar()
+                EnlargeWidget(_buildBottomNavBar(), height: 64),
+                SizedBox(
+                  height: 16,
+                )
               ],
             ),
           ),

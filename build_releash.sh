@@ -4,7 +4,7 @@ function openGithubAppMacOS() {
 }
 
 echo '-------------------------- Build Begin ----------------------------'
-flutter build web
+flutter build web --no-sound-null-safety
 
 echo 'move product into hornhuang.github.io'
 

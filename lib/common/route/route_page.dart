@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/utils/statement_utils.dart';
-import 'package:hornhuang_github_io/views/about_me/welfare_me_page.dart';
+import 'package:hornhuang_github_io/views/about_me/welfare_page.dart';
 import 'package:hornhuang_github_io/views/error_page.dart';
 import 'package:hornhuang_github_io/views/index_page.dart';
 import 'package:hornhuang_github_io/views/trend_page.dart';

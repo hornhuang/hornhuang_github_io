@@ -1,9 +1,9 @@
-import 'dart:html' as html;
-import 'dart:io';
-import 'dart:ui' as ui;
+import 'package:universal_html/html.dart' as html;
+import 'package:hornhuang_github_io/utils/FakeUi.dart' if (dart.library.html) 'package:hornhuang_github_io/utils/RealUi.dart' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
+import 'package:hornhuang_github_io/utils/app_util.dart';
 
 class WelfarePage extends StatefulWidget {
   static String Route = "about_me";
@@ -18,6 +18,32 @@ class WelfarePage extends StatefulWidget {
 class _WelfarePageState extends State<WelfarePage> {
 
   late html.IFrameElement _element;
+
+  Widget _buildBackground() {
+    return Column(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: new LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.white,
+                    Color(0xFFfafafa),
+                  ]),
+            ),
+          ),
+        ),
+        Image.asset(
+          AppUtil.getImageAssets("Welfare/neitui_background.jpeg"),
+          fit: BoxFit.fitWidth,
+        ),
+      ],
+    );
+  }
+
   @override
   void initState() {
     // 注册
@@ -38,7 +64,7 @@ class _WelfarePageState extends State<WelfarePage> {
     return Scaffold(
       body: Stack(
         children: [
-          Center(child: Text("Loading..."),),
+          _buildBackground(),
           HtmlElementView(viewType: 'webInWeb'),
         ],
       ),
