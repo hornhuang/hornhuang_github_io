@@ -52,6 +52,29 @@ flutter run --no-sound-null-safety
 > 如果配之后还是不可以，请发起一个 issue ，在其中附上自己电脑的 flutter doctor -v 内容、以及 flutter --version 、开发环境详细信息、问题截图和问题的详细描述
 > 然后可以到我的 b 站 [bilibili@黎明韭菜]() 想我反馈下，也可以在 b 站直接搜索「黎明韭菜」～
 
+</br>
+
+# # 导航
+
+欢迎来到我的个人站点，在这里你可以得到所有你想要的知识
+
+<table>
+  <tr>
+    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_0.gif"></td>
+    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_1.gif"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_2.gif"></td>
+    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_3.gif"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_4.gif"></td>
+    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_5.gif"></td
+  </tr>
+</table>
+
+</br>
+
 # # 支持
   
 项目采用了许多优秀的开原仓库，大佬们在百忙之中依然维持着怎么好的开源项目，让我们的开发过程更加丝滑，这里表示崇高的敬意与感谢
@@ -73,27 +96,6 @@ flutter run --no-sound-null-safety
   # dart:html 不支持 Android 所以要换成这个
   universal_html: ^1.2.1
 ```
-
-</br>
-
-# # 导航
-
-欢迎来到我的个人站点，在这里你可以得到所有你想要的知识
-
-<table>
-  <tr>
-    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_0.gif"></td>
-    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_1.gif"></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_2.gif"></td>
-    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_3.gif"></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_4.gif"></td>
-    <td><img src="https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac_5.gif"></td
-  </tr>
-</table>
 
 </br>
   
