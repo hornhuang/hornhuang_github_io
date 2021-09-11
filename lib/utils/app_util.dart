@@ -15,14 +15,18 @@ class AppUtil {
     return _assetsHtmlBaseURL + path;
   }
 
-  static double ApplicationFrameWith(BuildContext context) {
+  static double ApplicationFrameWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
 
-  static double ApplicationFrameHeight = window.physicalSize.height;
+  static double ApplicationFrameHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height;
+  }
+
+  static double PlatformScremnHeight = window.physicalSize.height;
 
   static bool isNarrow(BuildContext context) {
-    bool smallThen1100 = AppUtil.ApplicationFrameWith(context) < 896;
+    bool smallThen1100 = AppUtil.ApplicationFrameWidth(context) < 896;
     return smallThen1100;
   }
 }

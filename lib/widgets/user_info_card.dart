@@ -79,7 +79,7 @@ class UserInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double padding = AppUtil.isNarrow(context) ? 16 : 64;
-    double cardWidth = AppUtil.ApplicationFrameWith(context) - 200;
+    double cardWidth = AppUtil.ApplicationFrameWidth(context) - 200;
     return ConstrainedBox(
       child: Container(
         width: AppUtil.isNarrow(context) ? 320 : cardWidth,

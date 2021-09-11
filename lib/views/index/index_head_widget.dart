@@ -57,7 +57,7 @@ class _IndexHeadWidgetState extends State<IndexHeadWidget> {
 
   @override
   Widget build(BuildContext context) {
-    bool isPhone = AppUtil.ApplicationFrameWith(context) < 1000;
+    bool isPhone = AppUtil.ApplicationFrameWidth(context) < 1000;
     return Scaffold(
       appBar: isPhone
           ? AppBar(
