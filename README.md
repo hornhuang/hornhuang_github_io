@@ -50,7 +50,7 @@ flutter run --no-sound-null-safety
 具体可以参考：[Cannot run with sound null safety because dependencies don't support null safety](https://stackoverflow.com/questions/64917744/cannot-run-with-sound-null-safety-because-dependencies-dont-support-null-safety)
 
 > 如果配之后还是不可以，请发起一个 issue ，在其中附上自己电脑的 flutter doctor -v 内容、以及 flutter --version 、开发环境详细信息、问题截图和问题的详细描述
-> 然后可以到我的 b 站 [bilibili@黎明韭菜]() 想我反馈下，也可以在 b 站直接搜索「黎明韭菜」～
+> 然后可以到我的 b 站 [bilibili@黎明韭菜](https://space.bilibili.com/262075972) 想我反馈下，也可以在 b 站直接搜索「黎明韭菜」～
 
 </br>
 
