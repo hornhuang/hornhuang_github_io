@@ -27,7 +27,7 @@
   
 # MIT License
 
-```css
+```html
 Copyright (c) 2021 hornhuang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
