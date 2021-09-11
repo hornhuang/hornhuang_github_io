@@ -1,6 +1,6 @@
-# hornhuang_github_io
+# 恭喜发现宝藏 ㊗️
 
-website hornhuang.github.io flutter resource code
+欢迎来到我的站点，整个项目基于 flutter_web 搭建，同时支持 iOS、android 两端使用，点击这里就能访问哦：[hornhuang.github.io](https://hornhuang.github.io/#/?pg=index&)
 
 ![](https://github.com/hornhuang/PictureRepository/blob/master/hornhuang_github_io/hornhuang_github_io_bac.png)
 
