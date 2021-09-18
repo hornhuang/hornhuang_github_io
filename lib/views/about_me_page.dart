@@ -2,20 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
-import 'package:hornhuang_github_io/views/index/index_body_widget.dart';
-import 'package:hornhuang_github_io/views/index/index_head_widget.dart';
+import 'package:hornhuang_github_io/widgets/about_me/about_me_body_widget.dart';
+import 'package:hornhuang_github_io/widgets/about_me/about_me_head_widget.dart';
 
-class IndexPage extends StatefulWidget {
-  static String Route = "index";
+class AboutMePage extends StatefulWidget {
+  static String Route = "about_me";
   AppLink? link;
 
-  IndexPage({Key? key, this.link}) : super(key: key);
+  AboutMePage({Key? key, this.link}) : super(key: key);
 
   @override
-  _IndexPageState createState() => _IndexPageState();
+  _AboutMePageState createState() => _AboutMePageState();
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _AboutMePageState extends State<AboutMePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +25,12 @@ class _IndexPageState extends State<IndexPage> {
           Container(
             width: AppUtil.ApplicationFrameWidth(context),
             height: AppUtil.ApplicationFrameHeight(context),
-            child: IndexHeadWidget()  ,
+            child: AboutMeHeadWidget()  ,
           ),
           Container(
             width: AppUtil.ApplicationFrameWidth(context),
             height: AppUtil.ApplicationFrameHeight(context),
-            child: IndexBodyWidget()  ,
+            child: AboutMeBodyWidget()  ,
           ),
         ],
       ),

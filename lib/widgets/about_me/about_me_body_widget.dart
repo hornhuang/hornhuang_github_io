@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class IndexBodyWidget extends StatefulWidget {
+class AboutMeBodyWidget extends StatefulWidget {
   @override
-  _IndexBodyWidgetState createState() => _IndexBodyWidgetState();
+  _AboutMeBodyWidgetState createState() => _AboutMeBodyWidgetState();
 }
 
-class _IndexBodyWidgetState extends State<IndexBodyWidget> {
+class _AboutMeBodyWidgetState extends State<AboutMeBodyWidget> {
   @override
   Widget build(BuildContext context) {
     return GridView(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hornhuang_github_io/views/index/index_page.dart';
+import 'package:hornhuang_github_io/views/index_page.dart';
 import 'package:hornhuang_github_io/common/route/route_page.dart';
 
 import 'path.dart';

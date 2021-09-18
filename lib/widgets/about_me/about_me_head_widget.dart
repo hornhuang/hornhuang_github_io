@@ -6,12 +6,12 @@ import 'package:hornhuang_github_io/widgets/enlarge_widget.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 import 'package:hornhuang_github_io/widgets/user_info_card.dart';
 
-class IndexHeadWidget extends StatefulWidget {
+class AboutMeHeadWidget extends StatefulWidget {
   @override
-  _IndexHeadWidgetState createState() => _IndexHeadWidgetState();
+  _AboutMeHeadWidgetState createState() => _AboutMeHeadWidgetState();
 }
 
-class _IndexHeadWidgetState extends State<IndexHeadWidget> {
+class _AboutMeHeadWidgetState extends State<AboutMeHeadWidget> {
 
   Widget _buildBackground() {
     return Column(
