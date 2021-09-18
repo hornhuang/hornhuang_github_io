@@ -1,6 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:hornhuang_github_io/common/route/route_page.dart';
 
 import 'common/route/route_configuration.dart';

@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.13.0 <3.0.0"
 
 dependencies:
-  provider: ^5.0.0
+  provider: ^6.0.0
   # 轮播图
   flutter_swiper_null_safety: ^1.0.2
   # webview_flutter:
@@ -36,6 +36,12 @@ dependencies:
   animations: ^2.0.0
   # dart:html 不支持 Android 所以要换成这个
   universal_html: ^1.2.1
+  # Bmob 后端云
+  data_plugin: ^0.0.18
+  # flutter_bloc: mvvm
+  flutter_bloc: ^7.2.0
+  # dio: 网络请求
+  dio: ^3.0.9
 
   camera:
   flutter:
@@ -44,7 +50,8 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  #  cupertino_icons: ^1.0.3 # Bomb 中添加了，这里无法再添加
+
 
 #dependency_overrides:
 #  flutter_web:
@@ -60,13 +67,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_ume: ^0.2.0  # null-safety 版本: ^0.2.1
-  flutter_ume_kit_ui: ^0.2.0  # null-safety 版本: ^0.2.1
-  flutter_ume_kit_device: ^0.2.0  # null-safety 版本: ^0.2.1
-  flutter_ume_kit_perf: ^0.2.0  # null-safety 版本: ^0.2.1
-  flutter_ume_kit_show_code: ^0.2.0  # null-safety 版本: ^0.2.1
-  flutter_ume_kit_console: ^0.2.0  # null-safety 版本: ^0.2.1
-  flutter_ume_kit_dio: ^0.2.0  # 仅支持 null-safety 版本
+  flutter_ume: ^0.1.0  # null-safety 版本: ^0.2.1
+  flutter_ume_kit_ui: ^0.1.0  # null-safety 版本: ^0.2.1
+  flutter_ume_kit_device: ^0.1.0  # null-safety 版本: ^0.2.1
+  flutter_ume_kit_perf: ^0.1.0  # null-safety 版本: ^0.2.1
+  flutter_ume_kit_show_code: ^0.1.0  # null-safety 版本: ^0.2.1
+  flutter_ume_kit_console: ^0.1.0  # null-safety 版本: ^0.2.1
+#  flutter_ume_kit_dio: ^0.1.0  # 仅支持 null-safety 版本
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
