@@ -9,6 +9,7 @@ import 'package:flutter_ume_kit_perf/flutter_ume_kit_perf.dart'; // 性能插件
 import 'package:flutter_ume_kit_show_code/flutter_ume_kit_show_code.dart'; // 代码查看插件包
 import 'package:flutter_ume_kit_device/flutter_ume_kit_device.dart'; // 设备信息插件包
 import 'package:flutter_ume_kit_console/flutter_ume_kit_console.dart'; // debugPrint 插件包
+import 'package:hornhuang_github_io/common/manager/bmob_manager.dart';
 // import 'package:flutter_ume_kit_dio/flutter_ume_kit_dio.dart'; // Dio 网络请求调试工具
 
 import 'app.dart';
@@ -29,6 +30,7 @@ void main() {
     print(obj);
     print(stack);
   });
+  BmobManager.run();
 }
 
 void runWebApp() {

@@ -24,10 +24,6 @@ dependencies:
   provider: ^6.0.0
   # 轮播图
   flutter_swiper_null_safety: ^1.0.2
-  # webview_flutter:
-  webview_flutter: ^2.0.12
-  flutter_macos_webview: ^0.0.5
-  webview_windows: ^0.0.7
   # tab controller web
   easy_tab_controller: ^1.0.1
   # GetX is an extra-light and powerful solution for Flutter.
@@ -42,6 +38,8 @@ dependencies:
   flutter_bloc: ^7.2.0
   # dio: 网络请求
   dio: ^3.0.9
+  # flutter_toast: 吐司
+  fluttertoast: ^4.0.1
 
   camera:
   flutter:
