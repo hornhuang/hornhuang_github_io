@@ -51,6 +51,7 @@ class _LeftPanelState extends State<LeftPanel> {
 
   Widget _buildRecommendations() {
     return GridView.count(
+      semanticChildCount: _recommendations.length,
       crossAxisCount: 3,
       padding: EdgeInsets.symmetric(vertical: 0),
       children: _recommendations.map((item) => Text(item.name)).toList(),
@@ -62,9 +63,9 @@ class _LeftPanelState extends State<LeftPanel> {
     return Column(
       children: [
         _buildTitle("韭菜精选"),
-        _buildChoices(),
-        _buildTitle("占有推荐"),
-        _buildRecommendations(),
+        // _buildChoices(),
+        _buildTitle("精品推荐"),
+        // _buildRecommendations(),
       ],
     );
   }

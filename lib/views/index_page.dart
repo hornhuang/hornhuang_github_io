@@ -20,14 +20,16 @@ class _IndexPageState extends State<IndexPage> {
     return Scaffold(
       body: Row(
         children: [
-          // Expanded(
-          //   flex: 1,
-          //   child: LeftPanel()
-          // ),
-          Container(
-            width: 512,
-            child: RightPanel(),
-          )
+          Expanded(
+            flex: 1,
+            child: LeftPanel()
+          ),
+          Expanded(
+              child: Container(
+                width: 512,
+                child: RightPanel(),
+              )
+          ),
         ],
       ),
     );

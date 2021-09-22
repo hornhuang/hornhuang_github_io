@@ -17,6 +17,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: '黎明韭菜',
       theme: ThemeData(
+        buttonTheme: ButtonThemeData(minWidth: double.infinity, height: double.infinity),
         brightness: Brightness.light,
         primaryColor: Colors.white,
         accentColor: Colors.white,

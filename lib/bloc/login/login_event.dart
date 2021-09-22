@@ -6,24 +6,73 @@ abstract class LoginEvent extends Equatable {
   const LoginEvent();
 }
 
-class UserLoginEvent extends LoginEvent {
+class LoginStartEvent extends LoginEvent {
 
-  final int selectedIndex;
-
-  const UserLoginEvent({required this.selectedIndex});
+  const LoginStartEvent();
 
   @override
-  List<Object> get props => [selectedIndex];
+  List<Object> get props => [];
 
 }
 
-class UserRegisterEvent extends LoginEvent {
+class _LoginSucceedEvent extends LoginEvent {
 
-  final int selectedIndex;
+  final BmobUser user;
 
-  const UserRegisterEvent({required this.selectedIndex});
+  const _LoginSucceedEvent({required this.user});
 
   @override
-  List<Object> get props => [selectedIndex];
+  List<Object> get props => [user];
 
+}
+
+class _LoginFailedEvent extends LoginEvent {
+
+  final String errorMsg;
+
+  const _LoginFailedEvent({required this.errorMsg});
+
+  @override
+  List<Object> get props => [errorMsg];
+
+}
+
+class RegisterStartEvent extends LoginEvent {
+
+  const RegisterStartEvent();
+
+  @override
+  List<Object> get props => [];
+
+}
+
+class _RegisterSucceedEvent extends LoginEvent {
+
+  final BmobRegistered data;
+
+  const _RegisterSucceedEvent({required this.data});
+
+  @override
+  List<Object> get props => [data];
+
+}
+
+class _RegisterFailedEvent extends LoginEvent {
+
+  final String errorMsg;
+
+  const _RegisterFailedEvent({required this.errorMsg});
+
+  @override
+  List<Object> get props => [errorMsg];
+
+}
+
+class TypeChangedEvent extends LoginEvent {
+  LoginDialogType type;
+
+  TypeChangedEvent({required this.type});
+
+  @override
+  List<Object> get props => [type];
 }
