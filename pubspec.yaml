@@ -34,8 +34,10 @@ dependencies:
   universal_html: ^1.2.1
   # Bmob 后端云
   data_plugin: ^0.0.18
-  # flutter_bloc: mvvm
+  # flutter_bloc: mvvm 状态管理框架 https://juejin.cn/post/6856268776510504968
   flutter_bloc: ^7.2.0
+  #增强组件相等性判断，跟 bloc 结合使用
+  equatable: ^1.2.3
   # dio: 网络请求
   dio: ^3.0.9
   # flutter_toast: 吐司

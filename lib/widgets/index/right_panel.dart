@@ -44,7 +44,7 @@ class _RightPanelState extends State<RightPanel> {
   showLoginDialog() {
     showDialog(context: context, builder: (ctx) {
       return SimpleDialog(
-        title: Text("SimpleDialog"),
+        title: Text("用户登录"),
         titlePadding: EdgeInsets.all(10),
         backgroundColor: Colors.amber,
         elevation: 5,

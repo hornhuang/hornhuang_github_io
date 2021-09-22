@@ -4,6 +4,7 @@ import 'package:data_plugin/bmob/table/bmob_user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hornhuang_github_io/common/manager/user_manager.dart';
 
 class LoginDialog extends StatefulWidget {
   const LoginDialog({Key? key}) : super(key: key);
@@ -35,9 +36,17 @@ class _LoginDialogState extends State<LoginDialog> {
     bmobUserRegister.username = _nameController.text;
     bmobUserRegister.password = _passwordController.text;
     bmobUserRegister.login().then((BmobUser bmobUser) {
+      // UserManager.instance.update(bmobUser);
+      // Navigator.pop(context);
       _showToast(bmobUser.getObjectId() + "\n" + bmobUser.username);
     }).catchError((e) {
-      _showToast(BmobError.convert(e).error);
+      if (e == null) {
+        _showToast("???");
+        return;
+      }
+      print("ttttt:::::${e}");
+      // _showToast("${e}");
+      // _showToast("${BmobError.convert(e)}");
     });
   }
 
@@ -69,7 +78,6 @@ class _LoginDialogState extends State<LoginDialog> {
     return SimpleDialog(
       title: Text("SimpleDialog"),
       titlePadding: EdgeInsets.all(10),
-      backgroundColor: Colors.amber,
       elevation: 5,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(6))),
@@ -81,8 +89,7 @@ class _LoginDialogState extends State<LoginDialog> {
               child: Text("登录"),
             ),
             onTap: () {
-              _showToast("66666666");
-              // _login();
+              _login();
             }),
         ListTile(
             title: Center(
