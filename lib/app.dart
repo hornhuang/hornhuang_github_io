@@ -1,6 +1,6 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/route_page.dart';
+import 'package:hornhuang_github_io/utils/toast.dart';
 
 import 'common/route/route_configuration.dart';
 
@@ -11,6 +11,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ToastUtil.build(context);
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -22,8 +22,6 @@ class _TrendPageState extends State<TrendPage> {
   final String iosType = "ios";
   final String flutterType = "flutter";
 
-  late html.IFrameElement _androidElement;
-
   void registerElement(String type, String initialUrl) {
     // 注册
     html.IFrameElement _element = html.IFrameElement()

@@ -1,9 +1,9 @@
-import 'dart:io';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class AppUtil {
+
   static String _assetsImageBaseURL = "assets/images/";
   static String _assetsHtmlBaseURL = "assets/files/html/";
 
@@ -28,5 +28,14 @@ class AppUtil {
   static bool isNarrow(BuildContext context) {
     bool smallThen1100 = AppUtil.ApplicationFrameWidth(context) < 896;
     return smallThen1100;
+  }
+
+  //定义方法
+  static launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

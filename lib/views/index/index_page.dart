@@ -19,10 +19,19 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  IndexViewModel viewModel = IndexViewModel(api: BmobApi());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewModel.fetchVideos();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BaseStatefulWidget<IndexViewModel>(
-      model: IndexViewModel(api: Provider.of(context) ?? BmobApi()),
+      model: viewModel,
       onModelReady: (model) {},
       builder: (context, model, child) {
         return Scaffold(
@@ -30,13 +39,13 @@ class _IndexPageState extends State<IndexPage> {
             children: [
               Expanded(
                   flex: 1,
-                  child: LeftPanel()
+                  child: viewModel.videos.length == 0 ?
+                  Container() :
+                  LeftPanel(choices: viewModel.videos,recommendations: viewModel.videos,)
               ),
-              Expanded(
-                  child: Container(
-                    width: 512,
-                    child: RightPanel(),
-                  )
+              Container(
+                width: 256,
+                child: RightPanel(),
               ),
             ],
           ),

@@ -11,12 +11,39 @@ class RightPanel extends StatefulWidget {
 
 class _RightPanelState extends State<RightPanel> {
 
+  Widget _buildMessageBoard() {
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      itemCount: 100,
+      itemBuilder: (BuildContext ctxt, int index) {
+        return InkWell(
+          child: Container(
+            padding: EdgeInsets.all(4),
+            child: Text(
+              "这是 ${index} 条用户留言",
+              style: TextStyle(
+                  fontSize: 8
+              ),
+            ),
+          ),
+          onTap: () {},
+        );
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        FunctionEntryCard()
-      ],
+    return Container(
+      width: 256,
+      child: Column(
+        children: [
+          FunctionEntryCard(),
+          Expanded(
+            child: _buildMessageBoard(),
+          ),
+        ],
+      ),
     );
   }
 }

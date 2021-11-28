@@ -1,19 +1,24 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
+import 'package:hornhuang_github_io/common/Model/video_item_model.dart';
 import 'package:hornhuang_github_io/common/base/base_view_model.dart';
 import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
+import 'package:hornhuang_github_io/utils/toast.dart';
 
 class IndexViewModel extends BaseViewModel {
-
   Timer? _timer;
   int _countdownTime = 0;
+  List<VideoItemModel> videos = [];
 
   IndexViewModel({required BmobApi api}) : super(api: api);
 
-  Future<void> sendSms(String mobile) async {
-    await api.post(event: "sendSms", params: {"mobile":mobile});
+  Future<void> fetchVideos() async {
+    api.queryWhereEqual<VideoItemModel>((videos){
+      this.videos = videos;
+      this.notifyListeners();
+    }, (errMsg){
+      ToastUtil.showFailed(errMsg);
+    });
   }
 
   Future<bool> login(String mobile, String sms) async {
