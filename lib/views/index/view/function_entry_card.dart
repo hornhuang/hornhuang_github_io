@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../dialog/login_dialog.dart';
+import '../../../widgets/dialog/login_dialog.dart';
 
 class FunctionEntryCard extends StatelessWidget {
   late BuildContext context;

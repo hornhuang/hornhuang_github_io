@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
-import 'package:hornhuang_github_io/widgets/index/left_panel.dart';
-import 'package:hornhuang_github_io/widgets/index/right_panel.dart';
+import 'package:hornhuang_github_io/views/index/view/left_panel.dart';
+import 'package:hornhuang_github_io/views/index/view/right_panel.dart';
 
 class IndexPage extends StatefulWidget {
   static final String Route = "index";
