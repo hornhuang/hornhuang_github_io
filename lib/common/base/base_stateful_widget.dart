@@ -4,13 +4,13 @@ import 'package:provider/provider.dart';
 import 'base_view_model.dart';
 
 class BaseStatefulWidget<T extends BaseViewModel> extends StatefulWidget {
-  final Widget Function(BuildContext context, T model, Widget? child) builder;
+  Widget Function(BuildContext? context, T? model, Widget? child) builder;
+  T model;
+  Widget? child;
+  Function(T)? onModelReady;
 
-  final T model;
-  final Widget child;
-  final Function(T) onModelReady;
-
-  BaseStatefulWidget(this.model, this.builder, this.child, this.onModelReady, {Key? key})
+  BaseStatefulWidget({required this.model, required this.builder, this.child, this.onModelReady,
+    Key? key})
       : super(key: key);
 
 
@@ -23,7 +23,7 @@ class _BaseStatefulWidgetState<T extends BaseViewModel> extends State<BaseStatef
   void initState() {
     model = widget.model;
     if (widget.onModelReady != null) {
-      widget.onModelReady(model);
+      widget.onModelReady!(model);
     }
     super.initState();
   }

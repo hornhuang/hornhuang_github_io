@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
 
 enum ViewState {
   Idle,
@@ -7,10 +9,10 @@ enum ViewState {
 
 class BaseViewModel extends ChangeNotifier {
 
-  // Api api;
+  BmobApi api;
   bool disposed = false;
 
-  // BaseModel({ Api api}) : api = api;
+  BaseViewModel({required this.api});
 
   ViewState _state = ViewState.Idle;
 
