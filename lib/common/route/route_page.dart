@@ -5,7 +5,7 @@ import 'package:hornhuang_github_io/utils/statement_utils.dart';
 import 'package:hornhuang_github_io/views/about_me_page.dart';
 import 'package:hornhuang_github_io/views/welfare_page.dart';
 import 'package:hornhuang_github_io/views/error_page.dart';
-import 'package:hornhuang_github_io/views/index_page.dart';
+import 'package:hornhuang_github_io/views/index/index_page.dart';
 import 'package:hornhuang_github_io/views/trend_page.dart';
 
 import '../../widgets/swiper_widget.dart';
