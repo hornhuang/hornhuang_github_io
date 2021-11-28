@@ -47,9 +47,10 @@ class NewsCard extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(8),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildTitle(model.name),
-                SizedBox(height: 4),
+                SizedBox(height: 6),
                 Row(
                   children: [
                     _buildSubTitle(model.tags.toString()),

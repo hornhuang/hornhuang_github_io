@@ -18,7 +18,8 @@ enum _popMenu {
   about
 }
 
-class TopNavigationBar extends StatefulWidget {
+class TopNavigationBar extends StatefulWidget implements PreferredSizeWidget {
+  Size preferredSize;
 
   static Widget nomalPopMenu(BuildContext context) {
     return new PopupMenuButton<_popMenu>(
@@ -56,6 +57,8 @@ class TopNavigationBar extends StatefulWidget {
           }
         });
   }
+
+  TopNavigationBar() : preferredSize = Size.fromHeight(32);
 
   @override
   TopNavigationBarState createState() => TopNavigationBarState();

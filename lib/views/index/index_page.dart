@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/base/base_stateful_widget.dart';
 import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
+import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/views/index/view/left_panel.dart';
 import 'package:hornhuang_github_io/views/index/view/right_panel.dart';
 import 'package:hornhuang_github_io/views/index/viewmodel/index_view_model.dart';
+import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class IndexPage extends StatefulWidget {
@@ -21,6 +23,42 @@ class IndexPage extends StatefulWidget {
 class _IndexPageState extends State<IndexPage> {
   IndexViewModel viewModel = IndexViewModel(api: BmobApi());
 
+  PreferredSizeWidget? _attachAppBar() {
+    bool isPhone = AppUtil.ApplicationFrameWidth(context) < 1000;
+    if (isPhone) {
+      return AppBar(
+        backgroundColor: Theme.of(context).accentColor,
+        leading: Text(''),
+        elevation: 10,
+        title: Text('Welcome!'),
+        actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
+      );
+    } else {
+      return null;
+    }
+  }
+
+  Widget _buildBody() {
+    return Container(
+        padding: EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Expanded(
+                flex: 1,
+                child: viewModel.videos.length == 0
+                    ? Container()
+                    : LeftPanel(
+                        choices: viewModel.videos,
+                        recommendations: viewModel.videos,
+                      )),
+            Container(
+              width: 256,
+              child: RightPanel(),
+            ),
+          ],
+        ));
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -34,22 +72,7 @@ class _IndexPageState extends State<IndexPage> {
       model: viewModel,
       onModelReady: (model) {},
       builder: (context, model, child) {
-        return Scaffold(
-          body: Row(
-            children: [
-              Expanded(
-                  flex: 1,
-                  child: viewModel.videos.length == 0 ?
-                  Container() :
-                  LeftPanel(choices: viewModel.videos,recommendations: viewModel.videos,)
-              ),
-              Container(
-                width: 256,
-                child: RightPanel(),
-              ),
-            ],
-          ),
-        );
+        return Scaffold(body: _buildBody());
       },
     );
   }
