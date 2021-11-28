@@ -5,7 +5,7 @@ enum ViewState {
   Busy
 }
 
-class BaseModel extends ChangeNotifier {
+class BaseViewModel extends ChangeNotifier {
 
   // Api api;
   bool disposed = false;
