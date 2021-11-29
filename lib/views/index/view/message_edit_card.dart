@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../../../widgets/dialog/login_dialog.dart';
 
-class FunctionEntryCard extends StatelessWidget {
+class MessageEditCard extends StatelessWidget {
   late BuildContext context;
 
-  FunctionEntryCard({Key? key}) : super(key: key);
+  MessageEditCard({Key? key}) : super(key: key);
 
   Widget _buildLoginBtn() {
     return Container(
@@ -119,32 +119,73 @@ class FunctionEntryCard extends StatelessWidget {
         });
   }
 
+  Widget _buildTitle() {
+    return Container(
+      child: Text(
+        "留言板",
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  TextEditingController controller = TextEditingController();
+
+  Widget _buildEditWidget() {
+    return Container(
+      height: 20,
+      child: TextField(
+        controller: controller,
+      ),
+    );
+  }
+
+  Widget _buildConfirmBtn() {
+    return Container(
+      width: 30,
+      height: 20,
+      margin: EdgeInsets.all(4),
+      color: Theme.of(context).primaryColor,
+      child: TextButton(
+        child: Text('登录'),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (ctx) {
+              return LoginDialog();
+            },
+          );
+        },
+      ),
+    );
+  }
+
   Widget _buildBody() {
     return Container(
-      height: 152,
+      padding: EdgeInsets.all(8),
+      height: 92,
       width: 256,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            flex: 1,
-            child: Row(children: [
+          _buildTitle(),
+          SizedBox(height: 8,),
+          Row(
+            children: [
               Expanded(
-                child: _buildLoginBtn(),
+                child: _buildEditWidget(),
               ),
-              Expanded(
-                child: _buildRegisterBtn(),
-              ),
-            ],),
-          ),
-          Expanded(
-            flex: 1,
-            child: _buildShareBtn(),
-          ),
-          Expanded(
-            flex: 1,
-            child: _buildDonateBtn(),
+              SizedBox(width: 8,),
+              _buildConfirmBtn(),
+            ],
           ),
         ],
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(Radius.circular(8)),
+        color: Colors.white,
       ),
     );
   }

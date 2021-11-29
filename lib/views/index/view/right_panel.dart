@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hornhuang_github_io/views/index/view/function_entry_card.dart';
+import 'package:hornhuang_github_io/views/index/view/message_edit_card.dart';
 
 class RightPanel extends StatefulWidget {
   String title;
@@ -62,7 +62,7 @@ class _RightPanelState extends State<RightPanel> {
       width: 256,
       child: Column(
         children: [
-          FunctionEntryCard(),
+          MessageEditCard(),
           Expanded(
             child: _buildMessageBoard(),
           ),
