@@ -20,27 +20,13 @@ class _WelfarePageState extends State<WelfarePage> {
   late html.IFrameElement _element;
 
   Widget _buildBackground() {
-    return Column(
-      children: [
-        Expanded(
-          flex: 1,
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: new LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Colors.white,
-                    Color(0xFFfafafa),
-                  ]),
-            ),
-          ),
-        ),
-        Image.asset(
-          AppUtil.getImageAssets("Welfare/neitui_background.jpeg"),
-          fit: BoxFit.fitWidth,
-        ),
-      ],
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      child: Image.asset(
+        AppUtil.getImageAssets("Welfare/neitui_background.png"),
+        fit: BoxFit.fill,
+      ),
     );
   }
 

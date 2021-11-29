@@ -4,8 +4,10 @@ import 'package:hornhuang_github_io/common/Model/video_item_model.dart';
 
 class NewsCard extends StatelessWidget {
   VideoItemModel model;
+  double width;
+  double height;
 
-  NewsCard(this.model);
+  NewsCard(this.model, {this.width = 212, this.height = 176});
 
   Text _buildTitle(String title) {
     return Text(
@@ -37,7 +39,8 @@ class NewsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(4),
-      width: 212,
+      width: width,
+      height: height,
       child: Column(
         children: [
           ClipRRect(

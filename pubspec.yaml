@@ -95,6 +95,7 @@ flutter:
     - assets/images/Welfare/
     - assets/images/QuickLink/
     - assets/images/Index/
+    - assets/images/gif/
     - assets/files/html/
 
   # An image asset can refer to one or more resolution-specific "variants", see

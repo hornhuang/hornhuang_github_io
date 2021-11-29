@@ -46,6 +46,7 @@ class _RightPanelState extends State<RightPanel> {
       itemBuilder: (BuildContext ctxt, int index) {
         return InkWell(
           child: Container(
+            color: Colors.white54,
             padding: EdgeInsets.all(4),
             child: _buildMessage()
           ),

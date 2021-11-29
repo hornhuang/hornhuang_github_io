@@ -27,14 +27,13 @@ class _LeftPanelState extends State<LeftPanel> {
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 3,
       padding: EdgeInsets.symmetric(vertical: 0),
-      children: widget.recommendations.map((item) => Container(
-        child: Column(
-          children: [
-            Image.network(item.image),
-            Text(item.name),
-            Text(item.createdAt),
-          ],
+      children: widget.recommendations.map((item) => InkWell(
+        child: NewsCard(
+          item,
         ),
+        onTap: (){
+          AppUtil.launchURL(item.link);
+        },
       )).toList(),
     );
   }
