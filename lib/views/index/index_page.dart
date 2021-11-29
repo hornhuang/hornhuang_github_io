@@ -23,6 +23,31 @@ class IndexPage extends StatefulWidget {
 class _IndexPageState extends State<IndexPage> {
   IndexViewModel viewModel = IndexViewModel(api: BmobApi());
 
+  Widget _buildBackground() {
+    return Column(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: new LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.white,
+                    Color(0xFFfafafa),
+                  ]),
+            ),
+          ),
+        ),
+        Image.asset(
+          AppUtil.getImageAssets("Index/background.jpeg"),
+          fit: BoxFit.fill,
+        ),
+      ],
+    );
+  }
+
   PreferredSizeWidget? _attachAppBar() {
     bool isPhone = AppUtil.ApplicationFrameWidth(context) < 1000;
     if (isPhone) {
@@ -31,10 +56,10 @@ class _IndexPageState extends State<IndexPage> {
         leading: Text(''),
         elevation: 10,
         title: Text('Welcome!'),
-        actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
+        actions: <Widget>[TopNavigationBar.normalPopMenu(context)],
       );
     } else {
-      return null;
+      return TopNavigationBar(preferredSize: AppBar().preferredSize);
     }
   }
 
@@ -72,7 +97,15 @@ class _IndexPageState extends State<IndexPage> {
       model: viewModel,
       onModelReady: (model) {},
       builder: (context, model, child) {
-        return Scaffold(body: _buildBody());
+        return Scaffold(
+            appBar: _attachAppBar(),
+            body: Stack(
+              children: [
+                _buildBackground(),
+                _buildBody(),
+              ],
+            ),
+        );
       },
     );
   }

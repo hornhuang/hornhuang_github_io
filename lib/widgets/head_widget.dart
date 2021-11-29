@@ -65,7 +65,7 @@ class _HeadWidgetState extends State<HeadWidget> {
         leading: Text(''),
         elevation: 10,
         title: Text('Welcome!'),
-        actions: <Widget>[TopNavigationBar.nomalPopMenu(context)],
+        actions: <Widget>[TopNavigationBar.normalPopMenu(context)],
       )
           : null,
       body: Stack(
