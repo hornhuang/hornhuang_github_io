@@ -32,8 +32,9 @@ class _RightPanelState extends State<RightPanel> {
             Text(
               "给我留言",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontSize: 18,
               ),
             ),
             SizedBox(
@@ -42,14 +43,15 @@ class _RightPanelState extends State<RightPanel> {
             Text(
               "想看什么? 点这里来 GitHub 给我留言～",
               style: TextStyle(
-                color: Colors.blue,
+                color: Colors.lightBlueAccent,
+                fontWeight: FontWeight.w300,
                 fontSize: 12,
               ),
             ),
           ],
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.white.withOpacity(0.4),
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(8), topLeft: Radius.circular(8)),
         ),
