@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/common/Model/UserItemModel.dart';
 import 'package:hornhuang_github_io/common/Model/message_item_model.dart';
 import 'package:hornhuang_github_io/common/Model/video_item_model.dart';
 import 'package:hornhuang_github_io/common/base/base_model.dart';
@@ -25,31 +26,28 @@ class BmobApi {
   }
 
   ///保存一条数据
-  static saveMessage(BuildContext context, String msg) {
-    // MessageItemModel blog = MessageItemModel(
-    //     msg: msg
-    // );
-    // blog.save().then((BmobSaved bmobSaved) {
-    //   String message =
-    //       "发布成功，刷新查看";
-    //   ToastUtil.showSuccess(message);
-    // }).catchError((e) {
-    //   /// BmobError.convert(e).error
-    //   ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
-    //   LogE("saveMessage", BmobError.convert(e).error);
-    // });
+  static saveMessage(BuildContext context, String msg) async {
+
   }
 
   ///等于条件查询
-  void queryMessage<T extends BaseModel>(onBmobSucceed<T> onSucceed, onBmobFailed onFailed) {
-    // BmobQuery<T> query = BmobQuery();
-    // query.queryObjects().then((data) {
-    //   List<T> blogs = data.map((i) => MessageItemModel.fromJson(i)).toList() as List<T>;
-    //   onSucceed(blogs);
-    // }).catchError((e) {
-    //   ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
-    //   LogE("queryMessage", BmobError.convert(e).error);
-    // });
+  void queryMessage<T extends BaseModel>(onBmobSucceed<T> onSucceed, onBmobFailed onFailed) async {
+    try {
+      Response resp = await _dio.get("https://api.github.com/repos/hornhuang/hornhuang.github.io/issues");
+      if (resp.statusCode == 200) {
+        List<dynamic> data = resp.data;
+        List<T> messages = data.map((i) => MessageItemModel(
+            msg: i["title"],
+            createdAt: i["created_at"],
+            author: UserItemModel(name: i["user"]["login"], avtar_url: i["user"]["avtar_url"]),
+            body: i["body"])
+        ).toList() as List<T>;
+        onSucceed(messages);
+      }
+    } catch (error) {
+      ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
+      LogE("queryVideos", error.toString());
+    }
   }
 
   ///保存一条数据

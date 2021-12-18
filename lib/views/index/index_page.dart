@@ -5,10 +5,10 @@ import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/views/index/view/left_panel.dart';
+import 'package:hornhuang_github_io/views/index/view/right_panel.dart';
 import 'package:hornhuang_github_io/views/index/viewmodel/index_view_model.dart';
 import 'package:hornhuang_github_io/widgets/enlarge_widget.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
-import 'package:universal_html/html.dart' as html;
 
 class IndexPage extends StatefulWidget {
   static final String Route = "index";
@@ -65,57 +65,15 @@ class _IndexPageState extends State<IndexPage> {
                         courses: viewModel.course,
                         dynamics: viewModel.dynamics,
                       )),
-                  // Container(
-                  //   width: 256,
-                  //   child: RightPanel(messages: viewModel.messages,),
-                  // ),
+                  Container(
+                    width: 256,
+                    child: RightPanel(messages: viewModel.messages,),
+                  ),
                 ],
               ))
         ],
       ),
     );
-  }
-
-  Widget _buildFloatingWidget() {
-    return InkWell(
-      child: Container(
-        padding: EdgeInsets.all(8),
-        height: 72,
-        width: 100,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "给我留言",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-            SizedBox(height: 8,),
-            Text(
-              "想看什么? 点这里来 GitHub 给我留言～",
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 8,
-              ),
-            ),
-          ],
-        ),
-        decoration: BoxDecoration(
-          color: Colors.blueGrey,
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
-      onTap: () {
-        html.window.open("https://github.com/hornhuang/hornhuang.github.io/issues/new", 'new tab');
-      },
-    );
-  }
-
-  Widget _buildEnlargeWidget(Widget child) {
-    GlobalKey anchorKey = GlobalKey();
-    return EnlargeWidget(child, key: anchorKey, height: 50,  scaleOnHover: true);
   }
 
   @override
@@ -141,9 +99,6 @@ class _IndexPageState extends State<IndexPage> {
                 _buildBody(),
               ],
             ),
-          floatingActionButton: _buildEnlargeWidget(
-              _buildFloatingWidget()
-          ),
         );
       },
     );
