@@ -32,8 +32,6 @@ dependencies:
   animations: ^2.0.0
   # dart:html 不支持 Android 所以要换成这个
   universal_html: ^1.2.1
-  # Bmob 后端云
-  data_plugin: ^0.0.18
   # flutter_bloc: mvvm 状态管理框架 https://juejin.cn/post/6856268776510504968
   flutter_bloc: ^7.2.0
   #增强组件相等性判断，跟 bloc 结合使用

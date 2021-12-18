@@ -26,6 +26,7 @@ class VideoItemModel extends BaseModel {
       "blurb" : blurb,
       "tags"  : tags,
       "type"  : type,
+      "createdAt"  : createdAt,
     };
   }
 
@@ -36,10 +37,9 @@ class VideoItemModel extends BaseModel {
       blurb: json['blurb'] as String,
       image: json['image'] as String,
       type: json['type'] as String,
+      createdAt: json['createdAt'] as String,
       tags: json['tags'].cast<String>(),
     );
-    vm.objectId = json['objectId'] as String;
-    vm.createdAt = json['createdAt'] as String;
     return vm;
   }
 

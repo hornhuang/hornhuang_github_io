@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
-import 'package:hornhuang_github_io/styles.dart';
-import 'package:hornhuang_github_io/utils/toast.dart';
-
-import '../../../widgets/dialog/login_dialog.dart';
 
 class MessageEditCard extends StatelessWidget {
   late BuildContext context;

@@ -122,7 +122,8 @@ class _IndexPageState extends State<IndexPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    viewModel.fetchVideos();
+    viewModel.fetchCourses();
+    viewModel.fetchDynamics();
     viewModel.fetchMessages();
   }
 
