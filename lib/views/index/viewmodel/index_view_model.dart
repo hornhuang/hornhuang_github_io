@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:hornhuang_github_io/common/Model/message_item_model.dart';
 import 'package:hornhuang_github_io/common/Model/video_item_model.dart';
 import 'package:hornhuang_github_io/common/base/base_view_model.dart';
 import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
@@ -12,10 +13,12 @@ class IndexViewModel extends BaseViewModel {
   List<VideoItemModel> course = [];
   List<VideoItemModel> dynamics = [];
 
+  List<MessageItemModel> messages = [];
+
   IndexViewModel({required BmobApi api}) : super(api: api);
 
   Future<void> fetchVideos() async {
-    api.queryWhereEqual<VideoItemModel>((videos){
+    api.queryVideos<VideoItemModel>((videos){
       videos.forEach((element) {
         if (element.type == "course") {
           course.add(element);
@@ -23,6 +26,15 @@ class IndexViewModel extends BaseViewModel {
           dynamics.add(element);
         }
       });
+      this.notifyListeners();
+    }, (errMsg){
+      ToastUtil.showFailed(errMsg);
+    });
+  }
+
+  Future<void> fetchMessages() async {
+    api.queryMessage<MessageItemModel>((messages){
+      this.messages = messages;
       this.notifyListeners();
     }, (errMsg){
       ToastUtil.showFailed(errMsg);

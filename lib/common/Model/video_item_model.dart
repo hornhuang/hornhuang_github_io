@@ -1,5 +1,3 @@
-import 'package:data_plugin/bmob/table/bmob_object.dart';
-import 'package:data_plugin/bmob/table/bmob_user.dart';
 import 'package:hornhuang_github_io/common/base/base_model.dart';
 
 enum VideoType {

@@ -4,6 +4,8 @@ import 'package:hornhuang_github_io/utils/toast.dart';
 
 import 'common/route/route_configuration.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
+
 class MyApp extends StatefulWidget {
 
   @override
@@ -14,14 +16,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    ToastUtil.build(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      key: navigatorKey,
       title: '黎明韭菜',
       theme: ThemeData(
         buttonTheme: ButtonThemeData(minWidth: double.infinity, height: double.infinity),

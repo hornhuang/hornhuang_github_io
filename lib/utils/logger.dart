@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 _Dispatcher logHistory = _Dispatcher("");
 
-void log(String? value) {
+void _log(String module, String value) {
   String v = value ?? "";
   logHistory.value = v + "\n" + logHistory.value;
   if (kReleaseMode == false) {
@@ -13,7 +13,14 @@ void log(String? value) {
   }
 }
 
-void logError(String? value) => log("[ERROR] " + (value ?? ""));
+void LogI(String module, String value) {
+  _log(module, value);
+}
+
+void LogE(String module, String value) {
+  /// 实时上报 Bmob
+
+}
 
 // Take from: https://flutter.dev/docs/testing/errors
 void initLogger(VoidCallback runApp) {
@@ -21,11 +28,11 @@ void initLogger(VoidCallback runApp) {
     WidgetsFlutterBinding.ensureInitialized();
     FlutterError.onError = (FlutterErrorDetails details) {
       FlutterError.dumpErrorToConsole(details);
-      logError(details.stack.toString());
+      LogE("runZonedGuarded", details.stack.toString());
     };
     runApp.call();
   }, (Object error, StackTrace stack) {
-    logError(stack.toString());
+    LogE("runZonedGuarded", stack.toString());
   });
 }
 

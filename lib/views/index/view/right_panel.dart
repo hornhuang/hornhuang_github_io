@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/common/Model/message_item_model.dart';
 import 'package:hornhuang_github_io/views/index/view/message_edit_card.dart';
 
 class RightPanel extends StatefulWidget {
-  String title;
-  String createAt;
+  List<MessageItemModel> messages = [];
 
-  RightPanel({this.title = "这条留言走丢了", this.createAt = "2021-12-18", Key? key}) : super(key: key);
+  RightPanel({required this.messages, Key? key}) : super(key: key);
 
   @override
   _RightPanelState createState() => _RightPanelState();
@@ -14,11 +14,11 @@ class RightPanel extends StatefulWidget {
 
 class _RightPanelState extends State<RightPanel> {
 
-  Widget _buildMessage() {
+  Widget _buildMessage(MessageItemModel msg) {
     return Row(
       children: [
         Text(
-          widget.title,
+          msg.msg,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -29,7 +29,7 @@ class _RightPanelState extends State<RightPanel> {
         Container(
           width: 50,
           child: Text(
-            widget.createAt,
+            msg.createdAt,
             style: TextStyle(
                 fontSize: 8
             ),
@@ -43,12 +43,12 @@ class _RightPanelState extends State<RightPanel> {
     return Container(
       child: ListView.builder(
           scrollDirection: Axis.vertical,
-          itemCount: 100,
-          itemBuilder: (BuildContext ctxt, int index) {
+          itemCount: widget.messages.length,
+          itemBuilder: (BuildContext context, int index) {
             return InkWell(
               child: Container(
                   padding: EdgeInsets.all(4),
-                  child: _buildMessage()
+                  child: _buildMessage(widget.messages[index])
               ),
               onTap: () {},
             );

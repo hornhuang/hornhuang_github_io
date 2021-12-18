@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:data_plugin/bmob/table/bmob_object.dart';
 
 class BaseModel extends BmobObject {

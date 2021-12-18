@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
+import 'package:hornhuang_github_io/styles.dart';
+import 'package:hornhuang_github_io/utils/toast.dart';
 
 import '../../../widgets/dialog/login_dialog.dart';
 
@@ -7,72 +10,6 @@ class MessageEditCard extends StatelessWidget {
   late BuildContext context;
 
   MessageEditCard({Key? key}) : super(key: key);
-
-  Widget _buildLoginBtn() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      margin: EdgeInsets.all(4),
-      color: Theme.of(context).primaryColor,
-      child: TextButton(
-        child: Text('登录'),
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (ctx) {
-              return LoginDialog();
-            },
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildRegisterBtn() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      margin: EdgeInsets.all(4),
-      color: Theme.of(context).primaryColor,
-      child: TextButton(
-        child: Text('注册'),
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (ctx) {
-              return LoginDialog();
-            },
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildShareBtn() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      margin: EdgeInsets.all(4),
-      color: Theme.of(context).primaryColor,
-      child: TextButton(
-        child: Text('发布 + '),
-        onPressed: () {},
-      ),
-    );
-  }
-
-  Widget _buildDonateBtn() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      margin: EdgeInsets.all(4),
-      color: Theme.of(context).primaryColor,
-      child: TextButton(
-        child: Text('打赏'),
-        onPressed: () {},
-      ),
-    );
-  }
 
   showLoginDialog() {
     showDialog(
@@ -134,10 +71,32 @@ class MessageEditCard extends StatelessWidget {
   TextEditingController controller = TextEditingController();
 
   Widget _buildEditWidget() {
-    return Container(
-      height: 16,
-      child: TextField(
+    return new ConstrainedBox(
+      constraints: BoxConstraints(
+          maxHeight: 24,
+      ),
+      child: new TextField(
         controller: controller,
+        style: TextStyle(
+          fontSize: 12,
+        ),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(vertical: 2.0),
+          hintText: '请输入搜索内容',
+          hintStyle: TextStyle(
+            fontSize: 12,
+          ),
+          prefixIcon: Container(
+            height: 12,
+            width: 12,
+            child: Icon(Icons.style),
+          ),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none),
+          filled: true,
+          fillColor: Colors.blueGrey.shade200,
+        ),
       ),
     );
   }
@@ -149,14 +108,15 @@ class MessageEditCard extends StatelessWidget {
       margin: EdgeInsets.all(4),
       color: Theme.of(context).primaryColor,
       child: TextButton(
-        child: Text('发布'),
+        child: Text(
+          '发布',
+          style: TextStyle(
+            fontSize: 12,
+          ),
+        ),
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (ctx) {
-              return LoginDialog();
-            },
-          );
+          BmobApi.saveMessage(context, controller.text);
+          controller.clear();
         },
       ),
     );

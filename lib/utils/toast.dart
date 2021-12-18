@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hornhuang_github_io/app.dart';
 
 class ToastUtil {
 
   static FToast? _fToast;
 
-  static build(BuildContext context) {
-    if (_fToast == null) {
+  static build(BuildContext? context) {
+    if (_fToast == null && context != null) {
       _fToast = FToast();
       _fToast?.init(context);
     }
   }
 
   static showSuccess(String text) {
-    _showToast(
-        text,
+    Fluttertoast.showToast(
+        msg: text,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
     );
   }
 
   static showFailed(String text) {
-    _showToast(
-        text,
-        backgroundColor: Colors.pinkAccent
+    Fluttertoast.showToast(
+        msg: text,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
     );
   }
 
@@ -39,7 +51,7 @@ class ToastUtil {
           SizedBox(
             width: 12.0,
           ),
-          Text("This is a Custom Toast"),
+          Text(message),
         ],
       ),
     );

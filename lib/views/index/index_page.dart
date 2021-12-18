@@ -67,7 +67,7 @@ class _IndexPageState extends State<IndexPage> {
                       )),
                   Container(
                     width: 256,
-                    child: RightPanel(),
+                    child: RightPanel(messages: viewModel.messages,),
                   ),
                 ],
               ))
@@ -81,6 +81,7 @@ class _IndexPageState extends State<IndexPage> {
     // TODO: implement initState
     super.initState();
     viewModel.fetchVideos();
+    viewModel.fetchMessages();
   }
 
   @override
