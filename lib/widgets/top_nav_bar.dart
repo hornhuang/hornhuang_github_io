@@ -115,17 +115,6 @@ class TopNavigationBarState extends State<TopNavigationBar> {
   Widget _buildEnlargeWidget(BuildContext context, Widget child) {
     GlobalKey anchorKey = GlobalKey();
     return EnlargeWidget(child, key: anchorKey, height: 50,  scaleOnHover: true);
-    //   MouseRegion(
-    //   onEnter: (_) {
-    //     RenderBox renderBox = anchorKey.currentContext!.findRenderObject() as RenderBox;
-    //     var offset = renderBox.localToGlobal(Offset(0.0, renderBox.size.height));
-    //     _showMenu(context, offset);
-    //   },
-    //   onExit: (_) {
-    //
-    //   },
-    //   child: EnlargeWidget(child, height: 50, key: anchorKey, scaleOnHover: true),
-    // );
   }
 
   GestureTapCallback _onCustomItemTapped(BuildContext context, String route) {

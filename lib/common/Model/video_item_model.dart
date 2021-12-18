@@ -12,10 +12,11 @@ class VideoItemModel extends BaseModel {
   String image;
   String blurb;
   String type;
+  String createdAt;
   // BmobUser sharer;
   List<String> tags;
 
-  VideoItemModel({this.name = "", this.link = "", this.image = "", this.blurb = "", this.type = "course", this.tags = const []});
+  VideoItemModel({this.name = "", this.link = "", this.image = "", this.blurb = "", this.type = "course", this.createdAt = "2021-12-18", this.tags = const []});
 
   @override
   Map<String, dynamic> getParams() {

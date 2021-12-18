@@ -4,14 +4,16 @@ import 'package:hornhuang_github_io/common/Model/message_item_model.dart';
 import 'package:hornhuang_github_io/common/Model/video_item_model.dart';
 import 'package:hornhuang_github_io/common/base/base_view_model.dart';
 import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
+import 'package:hornhuang_github_io/data/course_data_provider.dart';
+import 'package:hornhuang_github_io/data/dynamic_data_provider.dart';
 import 'package:hornhuang_github_io/utils/toast.dart';
 
 class IndexViewModel extends BaseViewModel {
   Timer? _timer;
   int _countdownTime = 0;
 
-  List<VideoItemModel> course = [];
-  List<VideoItemModel> dynamics = [];
+  List<VideoItemModel> course = CourseProvider.attachCourse();
+  List<VideoItemModel> dynamics = DynamicProvider.attachCourse();
 
   List<MessageItemModel> messages = [];
 
