@@ -33,7 +33,8 @@ class BmobApi {
       ToastUtil.showSuccess(message);
     }).catchError((e) {
       /// BmobError.convert(e).error
-      ToastUtil.showSuccess("发生未知错误，请在 GitHub 联系开发者修复");
+      ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
+      LogE("saveMessage", BmobError.convert(e).error);
     });
   }
 
@@ -44,7 +45,8 @@ class BmobApi {
       List<T> blogs = data.map((i) => MessageItemModel.fromJson(i)).toList() as List<T>;
       onSucceed(blogs);
     }).catchError((e) {
-      onFailed(BmobError.convert(e).error);
+      ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
+      LogE("queryMessage", BmobError.convert(e).error);
     });
   }
 
@@ -59,7 +61,8 @@ class BmobApi {
       // currentObjectId = bmobSaved.objectId;
       ToastUtil.showSuccess(message);
     }).catchError((e) {
-      ToastUtil.showSuccess(BmobError.convert(e).error);
+      ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
+      LogE("saveVideoSingle", BmobError.convert(e).error);
     });
   }
 
@@ -71,7 +74,8 @@ class BmobApi {
       onSucceed(blogs);
     }).catchError((e) {
       /// BmobError.convert(e).error
-      ToastUtil.showSuccess("发生未知错误，请在 GitHub 联系开发者修复");
+      ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
+      LogE("queryVideos", BmobError.convert(e).error);
     });
   }
 
@@ -83,7 +87,7 @@ class BmobApi {
     blog.save().then((BmobSaved bmobSaved) {
       LogI("reportErrorLog", "上报异常 :: $content ; 在模块 :: $module");
     }).catchError((e) {
-      ToastUtil.showSuccess(BmobError.convert(e).error);
+      ToastUtil.showFailed("服务器发生异常，请 GitHub 反馈");
     });
   }
 
