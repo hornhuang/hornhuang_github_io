@@ -70,13 +70,12 @@ class BmobApi {
 
   ///等于条件查询
   Future<void> queryCourses<T extends BaseModel>(onBmobSucceed<T> onSucceed, onBmobFailed onFailed) async {
-    Response resp;
     try {
-      resp = await _dio.get("https://raw.githubusercontent.com/hornhuang/hornhuang_github_io/main/data/course_data_provider");
+      Response resp = await _dio.get("https://raw.githubusercontent.com/hornhuang/hornhuang_github_io/main/data/course_data_provider");
       if (resp.statusCode == 200) {
-        var data = jsonDecode(resp.data.toString());
-        List<T> blogs = data.map(( i) => VideoItemModel.fromJson(i)).toList() as List<T>;
-        onSucceed(blogs);
+        List<dynamic> data = jsonDecode(resp.data.toString());
+        List<T> courses = data.map((i) => VideoItemModel.fromJson(i)).toList() as List<T>;
+        onSucceed(courses);
       }
     } catch (error) {
       ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
@@ -85,16 +84,18 @@ class BmobApi {
   }
 
   ///等于条件查询
-  void queryDynamics<T extends BaseModel>(onBmobSucceed<T> onSucceed, onBmobFailed onFailed) {
-    // BmobQuery<T> query = BmobQuery();
-    // query.queryObjects().then((data) {
-    //   List<T> blogs = data.map(( i) => VideoItemModel.fromJson(i)).toList() as List<T>;
-    //   onSucceed(blogs);
-    // }).catchError((e) {
-    //   /// BmobError.convert(e).error
-    //   ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
-    //   LogE("queryVideos", BmobError.convert(e).error);
-    // });
+  void queryDynamics<T extends BaseModel>(onBmobSucceed<T> onSucceed, onBmobFailed onFailed) async {
+    try {
+      Response resp = await _dio.get("https://raw.githubusercontent.com/hornhuang/hornhuang_github_io/main/data/dynamic_data_provider");
+      if (resp.statusCode == 200) {
+        List<dynamic>  data = jsonDecode(resp.data);
+        List<T> dynamics = data.map(( i) => VideoItemModel.fromJson(i)).toList() as List<T>;
+        onSucceed(dynamics);
+      }
+    } catch (error) {
+      ToastUtil.showFailed("发生未知错误，请在 GitHub 联系开发者修复");
+      LogE("queryVideos", error.toString());
+    }
   }
 
   ///保存一条数据
