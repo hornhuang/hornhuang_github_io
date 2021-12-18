@@ -72,9 +72,9 @@ class BmobApi {
   Future<void> queryCourses<T extends BaseModel>(onBmobSucceed<T> onSucceed, onBmobFailed onFailed) async {
     Response resp;
     try {
-      resp = await _dio.get("");
+      resp = await _dio.get("https://api.github.com/repos/hornhuang/hornhuang_github_io/contents/data/course_data_provider");
       if (resp.statusCode == 200) {
-        String val = resp.toString();
+        String val = resp.data.toString();
         var data = jsonDecode(val);
         List<T> blogs = data.map(( i) => VideoItemModel.fromJson(i)).toList() as List<T>;
         onSucceed(blogs);
