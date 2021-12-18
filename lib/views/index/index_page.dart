@@ -61,11 +61,9 @@ class _IndexPageState extends State<IndexPage> {
                 children: [
                   Expanded(
                       flex: 1,
-                      child: viewModel.videos.length == 0
-                          ? Container()
-                          : LeftPanel(
-                        choices: viewModel.videos,
-                        recommendations: viewModel.videos,
+                      child: LeftPanel(
+                        courses: viewModel.course,
+                        dynamics: viewModel.dynamics,
                       )),
                   Container(
                     width: 256,

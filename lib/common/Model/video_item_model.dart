@@ -2,16 +2,22 @@ import 'package:data_plugin/bmob/table/bmob_object.dart';
 import 'package:data_plugin/bmob/table/bmob_user.dart';
 import 'package:hornhuang_github_io/common/base/base_model.dart';
 
+enum VideoType {
+  Course,
+  Dynamic
+}
+
 class VideoItemModel extends BaseModel {
 
   String name;
   String link;
   String image;
   String blurb;
+  String type;
   // BmobUser sharer;
   List<String> tags;
 
-  VideoItemModel({this.name = "", this.link = "", this.image = "", this.blurb = "", this.tags = const []});
+  VideoItemModel({this.name = "", this.link = "", this.image = "", this.blurb = "", this.type = "course", this.tags = const []});
 
   @override
   Map<String, dynamic> getParams() {
@@ -20,6 +26,7 @@ class VideoItemModel extends BaseModel {
       "link"  : link,
       "blurb" : blurb,
       "tags"  : tags,
+      "type"  : type,
     };
   }
 
@@ -29,7 +36,7 @@ class VideoItemModel extends BaseModel {
       link: json['link'] as String,
       blurb: json['blurb'] as String,
       image: json['image'] as String,
-      // url: json['url'] as String,
+      type: json['type'] as String,
       tags: json['tags'].cast<String>(),
     );
     vm.objectId = json['objectId'] as String;

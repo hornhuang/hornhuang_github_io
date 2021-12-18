@@ -8,13 +8,21 @@ import 'package:hornhuang_github_io/utils/toast.dart';
 class IndexViewModel extends BaseViewModel {
   Timer? _timer;
   int _countdownTime = 0;
-  List<VideoItemModel> videos = [];
+
+  List<VideoItemModel> course = [];
+  List<VideoItemModel> dynamics = [];
 
   IndexViewModel({required BmobApi api}) : super(api: api);
 
   Future<void> fetchVideos() async {
     api.queryWhereEqual<VideoItemModel>((videos){
-      this.videos = videos;
+      videos.forEach((element) {
+        if (element.type == "course") {
+          course.add(element);
+        } else if (element.type == "dynamic") {
+          dynamics.add(element);
+        }
+      });
       this.notifyListeners();
     }, (errMsg){
       ToastUtil.showFailed(errMsg);

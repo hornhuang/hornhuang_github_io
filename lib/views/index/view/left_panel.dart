@@ -6,10 +6,10 @@ import 'package:hornhuang_github_io/views/index/view/news_card.dart';
 import 'package:hornhuang_github_io/views/index/view/title_widget.dart';
 
 class LeftPanel extends StatefulWidget {
-  List<VideoItemModel> choices;
-  List<VideoItemModel> recommendations;
+  List<VideoItemModel> courses;
+  List<VideoItemModel> dynamics;
 
-  LeftPanel({this.choices = const <VideoItemModel>[], this.recommendations = const <VideoItemModel>[], Key? key}) : super(key: key);
+  LeftPanel({this.courses = const <VideoItemModel>[], this.dynamics = const <VideoItemModel>[], Key? key}) : super(key: key);
 
   @override
   _LeftPanelState createState() => _LeftPanelState();
@@ -28,7 +28,7 @@ class _LeftPanelState extends State<LeftPanel> {
     return Container(
       width: double.infinity,
       child: Wrap(
-        children: widget.recommendations.map((item) => InkWell(
+        children: widget.dynamics.map((item) => InkWell(
           child: NewsCard(
             item,
           ),
@@ -45,12 +45,12 @@ class _LeftPanelState extends State<LeftPanel> {
       height: 176,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: widget.choices.length,
+          itemCount: widget.courses.length,
           itemBuilder: (BuildContext ctxt, int index) {
             return InkWell(
-              child: NewsCard(widget.choices[index]),
+              child: NewsCard(widget.courses[index]),
               onTap: (){
-                AppUtil.launchURL(widget.choices[index].link);
+                AppUtil.launchURL(widget.courses[index].link);
               },
             );
           }
