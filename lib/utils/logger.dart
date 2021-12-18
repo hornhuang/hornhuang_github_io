@@ -8,9 +8,10 @@ _Dispatcher logHistory = _Dispatcher("");
 _Dispatcher errorHistory = _Dispatcher("");
 
 void _log(String module, String value) {
-  logHistory.value = value + "\n" + logHistory.value;
+  String message = module + " :: " + value;
+  logHistory.value = message + "\n" + logHistory.value;
   if (kReleaseMode == false) {
-    print(value);
+    print(module);
   }
 }
 
@@ -19,6 +20,7 @@ void LogI(String module, String value) {
 }
 
 void LogE(String module, String value) {
+  _log(module, value);
   /// 实时上报 Bmob
   if (errorHistory.value == module+value) {
     return;

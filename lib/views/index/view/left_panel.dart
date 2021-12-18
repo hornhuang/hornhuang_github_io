@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/Model/video_item_model.dart';
 import 'package:hornhuang_github_io/utils/app_util.dart';
+import 'package:hornhuang_github_io/utils/logger.dart';
 import 'package:hornhuang_github_io/views/index/view/news_card.dart';
 import 'package:hornhuang_github_io/views/index/view/title_widget.dart';
 
