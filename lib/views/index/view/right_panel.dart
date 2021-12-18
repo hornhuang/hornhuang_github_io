@@ -15,27 +15,32 @@ class RightPanel extends StatefulWidget {
 class _RightPanelState extends State<RightPanel> {
 
   Widget _buildMessage(MessageItemModel msg) {
-    return Row(
-      children: [
-        Text(
-          msg.msg,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-              fontSize: 8
-          ),
-        ),
-        Spacer(),
-        Container(
-          width: 50,
-          child: Text(
-            msg.createdAt,
+    return Container(
+      padding: EdgeInsets.all(4),
+      child: Row(
+        children: [
+          Text(
+            msg.msg,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
+                color: Colors.white,
                 fontSize: 8
             ),
           ),
-        ),
-      ],
+          Spacer(),
+          Container(
+            width: 76,
+            child: Text(
+              msg.createdAt,
+              style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontSize: 8
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
