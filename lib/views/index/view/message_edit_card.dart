@@ -124,7 +124,7 @@ class MessageEditCard extends StatelessWidget {
       child: Text(
         "留言板",
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -135,7 +135,7 @@ class MessageEditCard extends StatelessWidget {
 
   Widget _buildEditWidget() {
     return Container(
-      height: 20,
+      height: 16,
       child: TextField(
         controller: controller,
       ),
@@ -145,11 +145,11 @@ class MessageEditCard extends StatelessWidget {
   Widget _buildConfirmBtn() {
     return Container(
       width: 30,
-      height: 20,
+      height: 16,
       margin: EdgeInsets.all(4),
       color: Theme.of(context).primaryColor,
       child: TextButton(
-        child: Text('登录'),
+        child: Text('发布'),
         onPressed: () {
           showDialog(
             context: context,
@@ -165,7 +165,7 @@ class MessageEditCard extends StatelessWidget {
   Widget _buildBody() {
     return Container(
       padding: EdgeInsets.all(8),
-      height: 92,
+      height: 72,
       width: 256,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,8 +184,8 @@ class MessageEditCard extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Radius.circular(8)),
-        color: Colors.white,
+          color: Colors.white,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))
       ),
     );
   }

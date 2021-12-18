@@ -6,7 +6,7 @@ class RightPanel extends StatefulWidget {
   String title;
   String createAt;
 
-  RightPanel({this.title = "这条留言走丢了", this.createAt = "", Key? key}) : super(key: key);
+  RightPanel({this.title = "这条留言走丢了", this.createAt = "2021-12-18", Key? key}) : super(key: key);
 
   @override
   _RightPanelState createState() => _RightPanelState();
@@ -18,7 +18,7 @@ class _RightPanelState extends State<RightPanel> {
     return Row(
       children: [
         Text(
-          "这是 ${widget.title} 条用户留言",
+          widget.title,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -29,7 +29,7 @@ class _RightPanelState extends State<RightPanel> {
         Container(
           width: 50,
           child: Text(
-            "2021-06-66",
+            widget.createAt,
             style: TextStyle(
                 fontSize: 8
             ),
@@ -40,19 +40,24 @@ class _RightPanelState extends State<RightPanel> {
   }
 
   Widget _buildMessageBoard() {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      itemCount: 100,
-      itemBuilder: (BuildContext ctxt, int index) {
-        return InkWell(
-          child: Container(
-            color: Colors.white54,
-            padding: EdgeInsets.all(4),
-            child: _buildMessage()
-          ),
-          onTap: () {},
-        );
-      }
+    return Container(
+      child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: 100,
+          itemBuilder: (BuildContext ctxt, int index) {
+            return InkWell(
+              child: Container(
+                  padding: EdgeInsets.all(4),
+                  child: _buildMessage()
+              ),
+              onTap: () {},
+            );
+          }
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white54,
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8), bottomRight: Radius.circular(8))
+      ),
     );
   }
 

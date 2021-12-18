@@ -18,23 +18,25 @@ class LeftPanel extends StatefulWidget {
 class _LeftPanelState extends State<LeftPanel> {
 
   Widget _buildTitle(String title) {
-    return TitleWidget(title);
+    return Container(
+      padding: EdgeInsets.only(left: 4, right: 16),
+      child: TitleWidget(title),
+    );
   }
 
-  Widget _buildVideos() {
-    return GridView.count(
-      semanticChildCount: widget.recommendations.length,
-      physics: NeverScrollableScrollPhysics(),
-      crossAxisCount: 3,
-      padding: EdgeInsets.symmetric(vertical: 0),
-      children: widget.recommendations.map((item) => InkWell(
-        child: NewsCard(
-          item,
-        ),
-        onTap: (){
-          AppUtil.launchURL(item.link);
-        },
-      )).toList(),
+  Widget _buildVideos(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Wrap(
+        children: widget.recommendations.map((item) => InkWell(
+          child: NewsCard(
+            item,
+          ),
+          onTap: (){
+            AppUtil.launchURL(item.link);
+          },
+        )).toList(),
+      ),
     );
   }
 
@@ -67,9 +69,7 @@ class _LeftPanelState extends State<LeftPanel> {
     return Column(
       children: [
         _buildTitle("教程分享"),
-        Expanded(
-            child: _buildVideos()
-        ),
+        _buildVideos(context),
         _buildTitle("最近动态"),
         _buildTrends(),
       ],

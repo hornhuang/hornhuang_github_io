@@ -19,20 +19,27 @@ class _TitleWidgetState extends State<TitleWidget> {
       children: [
         Container(
           width: 8,
-          height: 16,
-          color: Colors.orange,
+          height: 20,
+          decoration: BoxDecoration(
+            color: Colors.yellow,
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+          ),
         ),
+        SizedBox(width: 8,),
         Text(
           "${widget.title}",
           style: TextStyle(
-
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
         Spacer(),
         Text(
-          "更多",
+          "更多 > ",
           style: TextStyle(
-
+            color: Colors.lightBlueAccent,
+            fontWeight: FontWeight.bold,
           ),
         )
       ],

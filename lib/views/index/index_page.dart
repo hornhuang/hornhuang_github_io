@@ -50,24 +50,32 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   Widget _buildBody() {
-    return Container(
-        padding: EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Expanded(
-                flex: 1,
-                child: viewModel.videos.length == 0
-                    ? Container()
-                    : LeftPanel(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: AppUtil.ApplicationFrameHeight(context)/3*2,),
+          Container(
+            height: AppUtil.ApplicationFrameHeight(context),
+              padding: EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Expanded(
+                      flex: 1,
+                      child: viewModel.videos.length == 0
+                          ? Container()
+                          : LeftPanel(
                         choices: viewModel.videos,
                         recommendations: viewModel.videos,
                       )),
-            Container(
-              width: 256,
-              child: RightPanel(),
-            ),
-          ],
-        ));
+                  Container(
+                    width: 256,
+                    child: RightPanel(),
+                  ),
+                ],
+              ))
+        ],
+      ),
+    );
   }
 
   @override
