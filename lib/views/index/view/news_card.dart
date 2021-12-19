@@ -28,7 +28,6 @@ class NewsCard extends StatelessWidget {
         title,
         textAlign: TextAlign.left,
         maxLines: 1,
-        softWrap: true,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
             fontSize: 8,
@@ -55,10 +54,12 @@ class NewsCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildTitle(model.name),
-                SizedBox(height: 6),
+                SizedBox(height: 8),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ...model.tags.map((e) => Container(
+                      padding: EdgeInsets.all(2),
                       margin: EdgeInsets.only(right: 4),
                       child: Text(
                         e,
@@ -67,8 +68,8 @@ class NewsCard extends StatelessWidget {
                         ),
                       ),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(2),
-                        color: Colors.black12,
+                        borderRadius: BorderRadius.circular(4),
+                        color: Colors.blueGrey.withOpacity(0.05),
                       ),
                     )).toList(),
                     Spacer(),

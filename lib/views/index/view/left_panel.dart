@@ -43,18 +43,16 @@ class _LeftPanelState extends State<LeftPanel> {
 
   Widget _buildTrends() {
     return Container(
-      height: 176,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: widget.courses.length,
-          itemBuilder: (BuildContext ctxt, int index) {
-            return InkWell(
-              child: NewsCard(widget.courses[index]),
-              onTap: (){
-                AppUtil.launchURL(widget.courses[index].link);
-              },
-            );
-          }
+      width: double.infinity,
+      child: Wrap(
+        children: widget.courses.map((item) => InkWell(
+          child: NewsCard(
+            item,
+          ),
+          onTap: (){
+            AppUtil.launchURL(item.link);
+          },
+        )).toList(),
       ),
     );
   }
