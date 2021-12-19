@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hornhuang_github_io/common/bmob/bmob_api.dart';
+import 'package:universal_html/html.dart' as html;
 
 class TitleWidget extends StatefulWidget {
   String title;
@@ -35,13 +35,18 @@ class _TitleWidgetState extends State<TitleWidget> {
           ),
         ),
         Spacer(),
-        Text(
-          "更多 > ",
-          style: TextStyle(
-            color: Colors.lightBlueAccent,
-            fontWeight: FontWeight.bold,
+        InkWell(
+          child: Text(
+            "更多 > ",
+            style: TextStyle(
+              color: Colors.lightBlueAccent,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        )
+          onTap: (){
+            html.window.open("https://space.bilibili.com/262075972", 'new tab');
+          },
+        ),
       ],
     );
   }

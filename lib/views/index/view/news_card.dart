@@ -40,7 +40,6 @@ class NewsCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(4),
       width: width,
-      height: height,
       child: Column(
         children: [
           ClipRRect(

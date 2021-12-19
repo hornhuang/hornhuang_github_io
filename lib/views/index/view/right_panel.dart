@@ -81,7 +81,7 @@ class _RightPanelState extends State<RightPanel> {
             ),
             SizedBox(height: 4,),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
                   width: 16,
