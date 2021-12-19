@@ -94,7 +94,7 @@ class _IndexPageState extends State<IndexPage> {
             ),
           ),
           Container(
-            height: AppUtil.ApplicationFrameHeight(context) -
+            height: isNarrow ? 1080 : AppUtil.ApplicationFrameHeight(context) -
                 kBottomNavigationBarHeight,
             padding: EdgeInsets.all(16),
             child: isNarrow
