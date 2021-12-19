@@ -65,6 +65,7 @@ class _RightPanelState extends State<RightPanel> {
   }
 
   Widget _buildMessage(MessageItemModel msg) {
+    print("sdasdasd${msg.author?.getParams()}");
     return InkWell(
       child: Container(
         padding: EdgeInsets.all(4),
@@ -87,7 +88,7 @@ class _RightPanelState extends State<RightPanel> {
                   width: 16,
                   height: 16,
                   child: ClipOval(
-                    child: Image.network(msg.author?.avtar_url ?? UserItemModel().avtar_url),
+                    child: Image.network(msg.author?.avatar_url ?? UserItemModel().avatar_url),
                   ),
                 ),
                 SizedBox(width: 4,),

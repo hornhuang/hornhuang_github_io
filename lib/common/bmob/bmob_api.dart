@@ -39,7 +39,7 @@ class BmobApi {
         List<T> messages = data.map((i) => MessageItemModel(
             msg: i["title"],
             createdAt: i["created_at"],
-            author: UserItemModel(name: i["user"]["login"], avtar_url: i["user"]["avtar_url"]),
+            author: UserItemModel(name: i["user"]["login"], avatar_url: i["user"]["avatar_url"]),
             body: i["body"])
         ).toList() as List<T>;
         onSucceed(messages);
