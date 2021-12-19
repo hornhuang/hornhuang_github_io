@@ -37,10 +37,16 @@ class _IndexPageState extends State<IndexPage> {
     bool isPhone = AppUtil.ApplicationFrameWidth(context) < 1000;
     if (isPhone) {
       return AppBar(
-        backgroundColor: Theme.of(context).accentColor,
+        backgroundColor: Colors.blueGrey,
         leading: Text(''),
         elevation: 10,
-        title: Text('Welcome!'),
+        title: Text(
+          '天气不错哦',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
         actions: <Widget>[TopNavigationBar.normalPopMenu(context)],
       );
     } else {
@@ -48,13 +54,39 @@ class _IndexPageState extends State<IndexPage> {
     }
   }
 
-  Widget _buildBody() {
+  List<Widget> _attachContent(bool isNarrow) {
+    return [
+      Expanded(
+          flex: isNarrow ? 0 : 1,
+          child: LeftPanel(
+            courses: viewModel.course,
+            dynamics: viewModel.dynamics,
+          )),
+      Expanded(
+        flex: isNarrow ? 1 : 0,
+        child: Container(
+          width: 256,
+          child: RightPanel(
+            messages: viewModel.messages,
+          ),
+        ),
+      ),
+    ];
+  }
+
+  Widget _buildBody(bool isNarrow) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: (AppUtil.ApplicationFrameHeight(context) - kBottomNavigationBarHeight) / 3 * 2,),
+          SizedBox(
+            height: (AppUtil.ApplicationFrameHeight(context) -
+                    kBottomNavigationBarHeight) /
+                3 *
+                2,
+          ),
           Container(
             height: kBottomNavigationBarHeight,
+            padding: EdgeInsets.all(isNarrow ? 8 : 0),
             width: double.infinity,
             child: Image.asset(
               AppUtil.getImageAssets("gif/arrowhead.gif"),
@@ -62,22 +94,17 @@ class _IndexPageState extends State<IndexPage> {
             ),
           ),
           Container(
-            height: AppUtil.ApplicationFrameHeight(context) - kBottomNavigationBarHeight,
-              padding: EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Expanded(
-                      flex: 1,
-                      child: LeftPanel(
-                        courses: viewModel.course,
-                        dynamics: viewModel.dynamics,
-                      )),
-                  Container(
-                    width: 256,
-                    child: RightPanel(messages: viewModel.messages,),
+            height: AppUtil.ApplicationFrameHeight(context) -
+                kBottomNavigationBarHeight,
+            padding: EdgeInsets.all(16),
+            child: isNarrow
+                ? Column(
+                    children: _attachContent(isNarrow),
+                  )
+                : Row(
+                    children: _attachContent(isNarrow),
                   ),
-                ],
-              ))
+          ),
         ],
       ),
     );
@@ -99,13 +126,13 @@ class _IndexPageState extends State<IndexPage> {
       onModelReady: (model) {},
       builder: (context, model, child) {
         return Scaffold(
-            appBar: _attachAppBar(),
-            body: Stack(
-              children: [
-                _buildBackground(),
-                _buildBody(),
-              ],
-            ),
+          appBar: _attachAppBar(),
+          body: Stack(
+            children: [
+              _buildBackground(),
+              _buildBody(AppUtil.isNarrow(context)),
+            ],
+          ),
         );
       },
     );

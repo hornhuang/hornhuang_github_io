@@ -61,10 +61,15 @@ class _AboutMeHeadWidgetState extends State<AboutMeHeadWidget> {
     return Scaffold(
       appBar: isPhone
           ? AppBar(
-        backgroundColor: Theme.of(context).accentColor,
-        leading: Text(''),
+        backgroundColor: Colors.blueGrey,
         elevation: 10,
-        title: Text('Welcome!'),
+        title: Text(
+          '天气不错哦',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
         actions: <Widget>[TopNavigationBar.normalPopMenu(context)],
       )
           : null,

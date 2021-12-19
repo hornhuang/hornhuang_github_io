@@ -25,7 +25,10 @@ class AppUtil {
 
   static double PlatformScremnHeight = window.physicalSize.height;
 
-  static bool isNarrow(BuildContext context) {
+  static bool isNarrow(BuildContext? context) {
+    if (context == null) {
+      return false;
+    }
     bool smallThen1100 = AppUtil.ApplicationFrameWidth(context) < 896;
     return smallThen1100;
   }
