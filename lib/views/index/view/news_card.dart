@@ -21,17 +21,20 @@ class NewsCard extends StatelessWidget {
     );
   }
 
-  Text _buildSubTitle(String title) {
-    return Text(
-      title,
-      textAlign: TextAlign.left,
-      maxLines: 1,
-      softWrap: true,
-      overflow: TextOverflow.ellipsis,
-      style: TextStyle(
-          fontSize: 8,
-          fontWeight: FontWeight.w600
-      ),
+  Widget _buildSubTitle(String title, int flex) {
+    return Expanded(
+      flex: flex,
+      child: Text(
+        title,
+        textAlign: TextAlign.left,
+        maxLines: 1,
+        softWrap: true,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+            fontSize: 8,
+            fontWeight: FontWeight.w600
+        ),
+      )
     );
   }
 
@@ -55,9 +58,21 @@ class NewsCard extends StatelessWidget {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    _buildSubTitle(model.tags.toString()),
+                    ...model.tags.map((e) => Container(
+                      margin: EdgeInsets.only(right: 4),
+                      child: Text(
+                        e,
+                        style: TextStyle(
+                          fontSize: 8
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2),
+                        color: Colors.black12,
+                      ),
+                    )).toList(),
                     Spacer(),
-                    _buildSubTitle(model.createdAt),
+                    _buildSubTitle(model.createdAt, 0),
                   ],
                 ),
               ],
