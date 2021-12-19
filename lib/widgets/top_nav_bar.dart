@@ -84,7 +84,8 @@ class TopNavigationBarState extends State<TopNavigationBar> {
   Widget _buildTitleNavBar(BuildContext context) {
     return Container(
       color: Color(0xFF002036),
-      padding: EdgeInsets.fromLTRB(16, 16, 32, 16),
+      padding: EdgeInsets.fromLTRB(16, 0, 32, 0),
+      height: kBottomNavigationBarHeight,
       alignment: Alignment.center,
       child: Flex (
         direction: Axis.horizontal,

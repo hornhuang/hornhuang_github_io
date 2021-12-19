@@ -7,7 +7,6 @@ import 'package:hornhuang_github_io/utils/app_util.dart';
 import 'package:hornhuang_github_io/views/index/view/left_panel.dart';
 import 'package:hornhuang_github_io/views/index/view/right_panel.dart';
 import 'package:hornhuang_github_io/views/index/viewmodel/index_view_model.dart';
-import 'package:hornhuang_github_io/widgets/enlarge_widget.dart';
 import 'package:hornhuang_github_io/widgets/top_nav_bar.dart';
 
 class IndexPage extends StatefulWidget {
@@ -53,9 +52,17 @@ class _IndexPageState extends State<IndexPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: AppUtil.ApplicationFrameHeight(context)/3*2,),
+          SizedBox(height: (AppUtil.ApplicationFrameHeight(context) - kBottomNavigationBarHeight) / 3 * 2,),
           Container(
-            height: AppUtil.ApplicationFrameHeight(context),
+            height: kBottomNavigationBarHeight,
+            width: double.infinity,
+            child: Image.asset(
+              AppUtil.getImageAssets("gif/arrowhead.gif"),
+              fit: BoxFit.fitHeight,
+            ),
+          ),
+          Container(
+            height: AppUtil.ApplicationFrameHeight(context) - kBottomNavigationBarHeight,
               padding: EdgeInsets.all(16),
               child: Row(
                 children: [
