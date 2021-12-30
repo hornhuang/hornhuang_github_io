@@ -1,10 +1,34 @@
 [
   {
+    "name": "为什么卫生纸要丢进马桶而不是垃圾桶？",
+    "link": "https://www.bilibili.com/video/BV1xP4y157wX/",
+    "tags": ["#每天冷知识","#卫生纸"],
+    "image": "https://image.uc.cn/s/wemedia/s/upload/2021/828645d654a8ae2c170c18e822ad772f.jpg",
+    "createdAt": "2021-11-28",
+    "type": "dynamic"
+  },
+  {
+    "name": "酵母菌放多了会对身体有害吗？",
+    "link": "https://www.bilibili.com/video/BV1g341187Rx/",
+    "tags": ["#每天冷知识", "#包子"],
+    "image": "https://image.uc.cn/s/wemedia/s/upload/2021/8fa4de90ddf4ab414950697732ecc662.jpg",
+    "createdAt": "2021-11-28",
+    "type": "dynamic"
+  },
+  {
       "name": "宇航员在太空如何睡觉？",
       "link": "https://www.bilibili.com/video/BV19q4y1u7A3/",
       "tags": ["#每天冷知识","#睡觉"],
       "image": "https://image.uc.cn/s/wemedia/s/upload/2021/44048e5e2f88a7621c19e0609dfb66ab.jpg",
       "createdAt": "2021-11-28",
+      "type": "dynamic"
+  },
+  {
+      "name": "【韭菜君】鲜艳的蘑菇真的都有毒吗？",
+      "link": "https://www.bilibili.com/video/BV13R4y1W7nW/",
+      "tags": ["#每天冷知识","#蘑菇"],
+      "image": "https://i2.hdslb.com/bfs/archive/db779e05afe7ec9a1dd6c1b89edfa591e3bd1cea.jpg",
+      "createdAt": "2021-12-22",
       "type": "dynamic"
   }
 ]
