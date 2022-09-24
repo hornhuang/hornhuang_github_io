@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hornhuang_github_io/common/route/app_link.dart';
 import 'package:hornhuang_github_io/utils/statement_utils.dart';
 import 'package:hornhuang_github_io/views/about_me_page.dart';
+import 'package:hornhuang_github_io/views/coding/coding_page.dart';
 import 'package:hornhuang_github_io/views/welfare_page.dart';
 import 'package:hornhuang_github_io/views/error_page.dart';
 import 'package:hornhuang_github_io/views/index/index_page.dart';
@@ -33,6 +34,7 @@ class _RoutePageState extends State<RoutePage> {
       AboutMePage.Route: AboutMePage(link: link),
       WelfarePage.Route: WelfarePage(link: link),
       TrendPage.Route: TrendPage(link: link),
+      CodingPage.Route: CodingPage(link: link),
     }, ErrorPage("找不到页面::${link.toLocation()}", null));
     return page;
   }
