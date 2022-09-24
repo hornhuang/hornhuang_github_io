@@ -28,9 +28,9 @@ class _CodingPageState extends State<CodingPage> {
 
 
   final List<_CodingSubject> subjectList = [
-    _CodingSubject("android", "https://pluspng.com/img-png/android-png-open-2000.png", "https://github.com/trending/kotlin?since=monthly"),
-    _CodingSubject("ios", "https://ts1.cn.mm.bing.net/th/id/R-C.6a9729a418e16a0692abba37454604e1?rik=UTH83n0MVFH1CQ&riu=http%3a%2f%2fpluspng.com%2fimg-png%2flogo-apple-ios-png-iphone-ve-ios-512.png&ehk=DnnbGhQtkFypN2RSC0YRKlrelQvHRE9AkhRGeigZ9cg%3d&risl=&pid=ImgRaw&r=0", "https://github.com/trending/swift?since=monthly"),
-    _CodingSubject("flutter", "https://tse3-mm.cn.bing.net/th/id/OIP-C.C1ovjT9NFzgFr_r5-E9shwHaHa?pid=ImgDet&rs=1", "https://github.com/trending/dart?since=monthly"),
+    _CodingSubject("android", "Coding/android_logo.jpg", "https://github.com/trending/kotlin?since=monthly"),
+    _CodingSubject("ios", "Coding/ios_logo.jpg", "https://github.com/trending/swift?since=monthly"),
+    _CodingSubject("flutter", "Coding/flutter_logo.png", "https://github.com/trending/dart?since=monthly"),
   ];
 
   @override
@@ -39,12 +39,25 @@ class _CodingPageState extends State<CodingPage> {
   }
 
   Widget _buildSubjectCard(_CodingSubject subject) {
-    return Card(
-      elevation: 4,
-      shadowColor: Colors.black12,
-      child: Container(
-        child: Image.network(subject.iconUrl),
+    return InkWell(
+      child: Card(
+        elevation: 4,
+        shadowColor: Colors.black12,
+        child: Container(
+          alignment: Alignment.center,
+          child: Container(
+            width: 200,
+            height: 200,
+            child: Image.asset(
+              AppUtil.getImageAssets(subject.iconUrl),
+              fit: BoxFit.fitHeight,
+            ),
+          ),
+        )
       ),
+      onTap: (){
+        html.window.open(subject.linkUrl, 'new tab');
+      },
     );
   }
 
@@ -58,11 +71,11 @@ class _CodingPageState extends State<CodingPage> {
     return Scaffold(
           body: GridView.count(
             crossAxisCount: 3,
-            mainAxisSpacing: 24,
-            crossAxisSpacing: 24,
+            mainAxisSpacing: 48,
+            crossAxisSpacing: 48,
             childAspectRatio: 0.7,
             physics: NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.all(60),
+            padding: EdgeInsets.all(120),
             children: subjectList.map((item) => _buildEnlargeWidget(context, _buildSubjectCard(item))).toList(),
           ),
         );
