@@ -6,10 +6,11 @@ import '../styles.dart';
 import 'package:flutter/cupertino.dart';
 
 class EnlargeWidget extends StatefulWidget {
-  EnlargeWidget(this.child, { Key? key, required this.height, this.scaleOnHover = true})
+  EnlargeWidget(this.child, { Key? key, required this.height, this.scaleOnHover = true, this.multiple = 1.15})
       : super(key: key);
   final Widget child;
   final double height;
+  final double multiple; // 缩放倍数
   final bool scaleOnHover;
   final ValueNotifier<bool> _isMouseOverNotifier = ValueNotifier(false);
 
@@ -81,7 +82,7 @@ class _EnlargeWidgetState extends State<EnlargeWidget> {
     return ValueListenableBuilder(
       valueListenable: widget._isMouseOverNotifier,
       builder: (_, bool isMouseOver, __) {
-        double scale = isMouseOver ? 1.15 : 1;
+        double scale = isMouseOver ? widget.multiple : 1;
         return AnimatedScale(
           begin: 1,
           end: scale,
