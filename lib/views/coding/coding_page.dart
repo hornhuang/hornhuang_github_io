@@ -70,7 +70,7 @@ class _CodingPageState extends State<CodingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
           body: GridView.count(
-            crossAxisCount: 3,git rm --cached GWToolkit
+            crossAxisCount: 3,
             mainAxisSpacing: 48,
             crossAxisSpacing: 48,
             childAspectRatio: 0.7,
